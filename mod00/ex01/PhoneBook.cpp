@@ -2,11 +2,13 @@
 
 PhoneBook::PhoneBook()
 {
-    index = 0;
+    index = -1;
 }
 
 void PhoneBook::addContact(Contact c)
 {
+    if(index == -1)
+        index = 0;
     if(index <= 7)
           contacts[index++] = c;
     else
@@ -39,6 +41,8 @@ void PhoneBook::search()
     int i;
     int inputIndex;
 
+    // replace wide with iomanip cpp its better but not now
+
     std::cout << "Index";
     wide("Index",0);
     std::cout << "Firstname";
@@ -52,8 +56,8 @@ void PhoneBook::search()
     i = 0;
     while(i < index)
     {
-        std::cout << std::to_string(i);
-        wide(std::to_string(i),0);
+        std::cout << std::to_string(i+1);
+        wide(std::to_string(i+1),0);
         std::cout << contacts[i].getFirstName();
         wide(contacts[i].getFirstName(),0);
         std::cout << contacts[i].getLastName();
@@ -66,7 +70,10 @@ void PhoneBook::search()
     std::cout << "Enter an index : ";
     std::cin >> inputIndex;
 
-    if(inputIndex <= index)
+    inputIndex -= 1;
+
+    // problem of if user input 0 and and there is no contact
+    if(inputIndex <= index && inputIndex >= 0 && index >= 0)
     {
         std::cout << std::to_string(inputIndex);
         wide(std::to_string(inputIndex),0);

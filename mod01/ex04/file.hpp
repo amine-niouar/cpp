@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   file.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 19:11:23 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/22 21:48:20 by aniouar          ###   ########.fr       */
+/*   Created: 2022/12/22 19:06:50 by aniouar           #+#    #+#             */
+/*   Updated: 2022/12/22 21:00:02 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#pragma once
-#ifndef __WEAPON_H__
-#define __WEAPON_H__
-
+// class reponsable for ouput and input wow hhhhh
 #include <iostream>
+#include<fstream>
 
-
-class Weapon
+class Sed
 {
     private:
-        std::string type;
+        std::string filename;
+        std::string search;
+        std::string replacestr;
+        std::string stream;
+        std::fstream readMode;
+        std::ofstream writeMode;
     public:
-        Weapon();
-        Weapon(std::string t);
-        const std::string* getType(void);
-        void setType(std::string t);
-        ~Weapon();
+        Sed(std::string f,std::string s,std::string r);
+        int check_errors(void);
+        void get_stream(void);
+        int set_stream(void);
+        ~Sed();
 };
-
-
-#endif

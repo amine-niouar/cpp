@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 19:36:08 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/21 20:23:06 by aniouar          ###   ########.fr       */
+/*   Updated: 2022/12/22 21:46:11 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ HumanB::~HumanB()
 
  void HumanB::setWeapon(Weapon wpp)
  {
-     wp = wpp;
+     wp = &wpp;
  }
 
 void HumanB::attack()
 {
-    std::cout << "<" << name << "> attacks with their " << "<" << wp.getType() 
-        << ">" << std::endl;
+    std::cout << name << " attacks with their " << *(wp->getType()) 
+         << std::endl;
 }

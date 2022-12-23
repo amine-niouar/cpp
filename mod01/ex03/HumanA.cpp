@@ -6,16 +6,16 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 19:24:18 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/21 20:33:02 by aniouar          ###   ########.fr       */
+/*   Updated: 2022/12/22 21:43:22 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string n,Weapon* wpp)
+HumanA::HumanA(std::string n,Weapon wpp)
 {
-    wp = wpp;
+    wp = &wpp;
     name = n;
 }
 
@@ -23,8 +23,8 @@ HumanA::HumanA(std::string n,Weapon* wpp)
 
 void HumanA::attack()
 {
-    std::cout << "<" << name << "> attacks with their " << "<" << wp->getType() 
-        << ">" << std::endl;
+    std::cout << name << " attacks with their "  << *(wp->getType()) 
+     << std::endl;
 }
 
 HumanA::~HumanA()

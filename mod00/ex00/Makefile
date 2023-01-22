@@ -1,11 +1,23 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/22 18:39:27 by aniouar           #+#    #+#              #
+#    Updated: 2023/01/22 18:39:28 by aniouar          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS = megaphone.cpp
-NAME =  a.out
+NAME =  megaphone
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 all : $(NAME)
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)
 clean :
 	rm -f $(OBJS)
 fclean : clean

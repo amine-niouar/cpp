@@ -6,11 +6,10 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:58:52 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/21 12:58:53 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/22 13:41:02 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 
 class Contact
 {
@@ -23,9 +22,9 @@ class Contact
     public:
         Contact();
         Contact(std::string fn,std::string ln,std::string nk,std::string pn,std::string ds);
-        std::string getFirstName();
-        std::string getLastName();
-        std::string getNickName();
-        std::string getPhoneNumber();
-        std::string getDarkestSecret();
+        std::string getFirstName() const;
+        std::string getLastName() const;
+        std::string getNickName() const;
+        std::string getPhoneNumber() const;
+        std::string getDarkestSecret() const;
 };

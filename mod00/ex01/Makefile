@@ -1,11 +1,14 @@
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
-NAME =  a.out
+NAME =  PhoneBook
+HEADER = PhoneBook.hpp Contact.hpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 all : $(NAME)
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)
+$(OBJS) : $(HEADER)
+
 clean :
 	rm -f $(OBJS)
 fclean : clean

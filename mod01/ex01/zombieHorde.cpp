@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:21:57 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/22 12:27:47 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/22 18:32:46 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 Zombie* zombieHorde( int N, std::string name )
 {
-    // its better to pass the name to all item in array in allocation
-    // still not found a way to call the constructor with parameters 
-    //from this line
+
 
     if(N > 0)
     {

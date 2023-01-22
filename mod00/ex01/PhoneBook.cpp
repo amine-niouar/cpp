@@ -1,89 +1,120 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/21 08:15:54 by aniouar           #+#    #+#             */
+/*   Updated: 2023/01/22 18:32:31 by aniouar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <iomanip>
+#include <iostream>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
 {
-    index = -1;
+    index = 0;
 }
 
 void PhoneBook::addContact(Contact c)
 {
-    if(index == -1)
-        index = 0;
-    if(index <= 7)
-          contacts[index++] = c;
-    else
-          contacts[index] = c;
+     contacts[index % 8] = c;
+     index++;
 }
 
-void PhoneBook::wide(std::string s,int iflast)
+
+void PhoneBook::search_index(void)
 {
-    int i;
-    int x;
+    int inputIndex;
+    std::string strInput;
+    std::string waiting;
+    
 
-    i = 0;
-    while(s[i])
-        i++;
-    x = 10 - i; 
-    i = 0;
-    while(i < x)
+    inputIndex = -1;
+     if(index >= 0)
     {
-        std::cout << " ";
-        i++;
+        std::cout << "Enter an index : ";
+        while(std::getline(std::cin, strInput))
+        {
+              if(strInput.length() == 1)
+             {
+                inputIndex = strInput[0] - 48;
+                inputIndex -= 1;
+             }
+            break;
+        }
+        if(inputIndex <= index && inputIndex >= 0 && inputIndex <= 7 && index >= 0)
+        {
+            std::cout << "index : " << std::to_string(inputIndex+1) << std::endl;
+            std::cout << "firstname : " << contacts[inputIndex].getFirstName() << std::endl;
+            std::cout << "lastname : "  << contacts[inputIndex].getLastName() << std::endl;
+            std::cout << "nickname : " << contacts[inputIndex].getNickName() << std::endl;
+        }
+        else
+            std::cout << "Out of range ! " << std::endl;
+
+        std::cout << "type c to continue... ";
+          while(std::getline(std::cin, strInput))
+          {
+                if(strInput == "c")
+                    break;
+                else
+                    std::cout << "type c to continue... ";
+           }
     }
-    if(!iflast)
-        std::cout << "| ";
-    else
-        std::cout << std::endl;
 }
+
+void PhoneBook::print_column(std::string s,int last)
+{
+     if( s.length() < 10)
+        std::cout << std::right << std::setfill(' ')  << std::setw(10)  << s;
+    else
+        std::cout << s.substr(0,9) << ".";
+    if(!last)
+        std::cout << "|";
+}
+
 
 void PhoneBook::search()
 {
     int i;
-    int inputIndex;
+    int myindex;
 
-    // replace wide with iomanip cpp its better but not now
-
-    std::cout << "Index";
-    wide("Index",0);
-    std::cout << "Firstname";
-    wide("Firstname",0);
-    std::cout << "Lastname";
-    wide("Lastname",0);
-    std::cout << "Nickname";
-    wide("Nickname",1);
-
-
-    i = 0;
-    while(i < index)
+    if(index == 0)
     {
-        std::cout << std::to_string(i+1);
-        wide(std::to_string(i+1),0);
-        std::cout << contacts[i].getFirstName();
-        wide(contacts[i].getFirstName(),0);
-        std::cout << contacts[i].getLastName();
-        wide(contacts[i].getLastName(),0);
-        std::cout << contacts[i].getNickName();
-        wide(contacts[i].getNickName(),1);
+        std::cout << "Phonebook is empty" << std::endl;
+        std::cout << "Press Enter to continue...";
+        std::getchar();
+        return;
+    }
+    else
+    {
+        std::cout << std::right << std::setfill(' ')  << std::setw(10)  << "Index";
+        std::cout << "|";
+        std::cout << std::right << std::setfill(' ') << std::setw(10) << "Firstname" ;
+        std::cout << "|";
+        std::cout  << std::right << std::setfill(' ')  << std::setw(10) << "Lastname";
+        std::cout << "|";
+        std::cout  << std::right << std::setfill(' ')  << std::setw(10) << "Nickname" << std::endl;
+    }
+    if(index > 8)
+        myindex = 8;
+    else
+        myindex = index;
+    i = 0;
+    while(i < myindex)
+    {
+        print_column(std::to_string(i+1),0);
+        print_column(contacts[i].getFirstName(),0);
+        print_column(contacts[i].getLastName(),0);
+        print_column(contacts[i].getNickName(),1);
+        std::cout << std::endl;
         i++;
     }
 
-    std::cout << "Enter an index : ";
-    std::cin >> inputIndex;
+    search_index();
 
-    inputIndex -= 1;
-
-    // problem of if user input 0 and and there is no contact
-    if(inputIndex <= index && inputIndex >= 0 && index >= 0)
-    {
-        std::cout << std::to_string(inputIndex);
-        wide(std::to_string(inputIndex),0);
-        std::cout << contacts[inputIndex].getFirstName();
-        wide(contacts[inputIndex].getFirstName(),0);
-        std::cout << contacts[inputIndex].getLastName();
-        wide(contacts[inputIndex].getLastName(),0);
-        std::cout << contacts[inputIndex].getNickName();
-        wide(contacts[inputIndex].getNickName(),1);
-    }
-    else
-         std::cout << "Out of range ! " << std::endl;
 }

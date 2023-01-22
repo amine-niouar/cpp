@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 10:13:48 by aniouar           #+#    #+#             */
+/*   Updated: 2023/01/22 10:59:12 by aniouar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+
 #include <iostream>
 #include "PhoneBook.hpp"
 
@@ -49,6 +63,16 @@ int main()
             pb.search();
         else  if(choose == "3")
             exit(0);
+        else
+        {
+            if(choose != "")
+            {
+                std::cout << "Invalid choice" << std::endl;
+                std::cout << "Press Enter to continue...";
+                std::getchar();
+            }
+            
+        }
         system("clear");
         std::cout << "1.ADD" << std::endl;
         std::cout << "2.SEARCH" << std::endl;

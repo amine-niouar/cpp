@@ -6,11 +6,9 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:05:31 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/23 22:22:29 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/23 21:23:43 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "Weapon.hpp"
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"

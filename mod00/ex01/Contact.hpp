@@ -6,10 +6,13 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:58:52 by aniouar           #+#    #+#             */
-/*   Updated: 2023/01/22 13:41:02 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/24 23:26:50 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#ifndef __CONTACT_H__
+#define __CONTACT_H__
 
 class Contact
 {
@@ -28,3 +31,6 @@ class Contact
         std::string getPhoneNumber() const;
         std::string getDarkestSecret() const;
 };
+
+#endif
+

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 08:15:54 by aniouar           #+#    #+#             */
-/*   Updated: 2023/01/22 18:32:31 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/24 23:13:06 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,14 @@ void PhoneBook::search_index(void)
              }
             break;
         }
-        if(inputIndex <= index && inputIndex >= 0 && inputIndex <= 7 && index >= 0)
+        if(inputIndex < index && inputIndex >= 0 && inputIndex <= 7 && index >= 0)
         {
             std::cout << "index : " << std::to_string(inputIndex+1) << std::endl;
             std::cout << "firstname : " << contacts[inputIndex].getFirstName() << std::endl;
             std::cout << "lastname : "  << contacts[inputIndex].getLastName() << std::endl;
             std::cout << "nickname : " << contacts[inputIndex].getNickName() << std::endl;
+            std::cout << "dark secret : " << contacts[inputIndex].getNickName() << std::endl;
+            std::cout << "phone number : " << contacts[inputIndex].getNickName() << std::endl;
         }
         else
             std::cout << "Out of range ! " << std::endl;

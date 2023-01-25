@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 19:13:17 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/23 22:29:35 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:37:06 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ Weapon::Weapon(std::string t)
 
 const std::string* Weapon::getType(void)
 {
-   //std::cout << "from function :" << type << std::endl;
     return &type;
 }
 

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:05:31 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/23 23:31:52 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/22 18:51:26 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void)
    
    h.complain("debug");
    h.complain("error");
+    h.complain("ddd");
 
    // it segfault when the level does not match
 }

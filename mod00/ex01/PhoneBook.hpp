@@ -6,11 +6,13 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:36:38 by aniouar           #+#    #+#             */
-/*   Updated: 2023/01/22 17:36:54 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:33:51 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#pragma once
+#ifndef __PHONEBOOK_H__
+#define __PHONEBOOK_H__
 #include "Contact.hpp"
 
 class PhoneBook
@@ -28,5 +30,7 @@ class PhoneBook
 
 
 };
+
+#endif
 
 

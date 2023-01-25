@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/23 07:44:31 by aniouar           #+#    #+#              #
+#    Updated: 2023/01/23 07:44:32 by aniouar          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
 NAME =  PhoneBook
 HEADER = PhoneBook.hpp Contact.hpp

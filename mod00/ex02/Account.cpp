@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:58:25 by aniouar           #+#    #+#             */
-/*   Updated: 2023/01/22 18:35:53 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:31:08 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ void Account::makeDeposit(int deposit)
     std::cout << deposit << ";amount:" << _amount << ";nb_deposits:" << _nbDeposits << std::endl;
 }
 
-bool Account::makeWithdrawal( int withdrawal)
+bool Account::makeWithdrawal(int withdrawal)
 {
     int check;
     int p_amount;
 
+    p_amount = 0;
     check = _amount - withdrawal;
     if(check >= 0)
     {

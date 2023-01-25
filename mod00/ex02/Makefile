@@ -6,7 +6,7 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/22 18:39:32 by aniouar           #+#    #+#              #
-#    Updated: 2023/01/22 18:39:33 by aniouar          ###   ########.fr        #
+#    Updated: 2023/01/24 15:24:01 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,10 @@ HEADER = Account.hpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
 HEADER = Account.hpp
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 all : $(NAME)
 $(NAME): $(OBJS) 
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 $(OBJS) : $(HEADER)
 clean :
 	rm -f $(OBJS)

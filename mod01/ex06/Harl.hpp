@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 19:33:56 by aniouar           #+#    #+#             */
-/*   Updated: 2023/02/23 10:01:21 by aniouar          ###   ########.fr       */
+/*   Created: 2022/12/23 22:53:54 by aniouar           #+#    #+#             */
+/*   Updated: 2023/02/26 10:34:07 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef __HUMANB_H__
-#define __HUMANB_H__
-
 #include <iostream>
-#include "Weapon.hpp"
+#include <map>
 
-class HumanB
+class Harl
 {
     private:
-        Weapon* wp;
-        std::string name;
+        void (Harl::*complains[4])(void);
+        std::string keys[4];
     public:
-        HumanB(std::string n);
-        void setWeapon(Weapon& wpp);
-        void attack();
-        ~HumanB();
-};
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
+        Harl();
+       void complain(std::string level);
 
-#endif
+};

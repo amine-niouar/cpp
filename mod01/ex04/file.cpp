@@ -6,15 +6,19 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:09:55 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/22 21:05:53 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/02/26 11:13:03 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "file.hpp"
 
-Sed::Sed(std::string f,std::string s,std::string r) : filename(f),search(s),replacestr(r)
+Sed::Sed(std::string f,std::string s,std::string r,std::string nf)
 {
+    filename = f;
+    search  = s;
+    replacestr = r;
+    newfile = nf;
 }
 
 int Sed::check_errors(void)
@@ -41,26 +45,25 @@ void Sed::get_stream(void)
  int Sed::set_stream(void)
  {
     int f;
-    int start,end,i;
     
-    writeMode.open(filename,std::ios::out);
+    writeMode.open(newfile,std::ios::out);
     if(!writeMode.good())
         return (0);
-     
     f = stream.find(search);
-
+    if(f == -1)
+    {
+        writeMode << stream;
+        return(2);
+    }
     while(f != -1)
     {
         stream.erase(f,search.size());
         stream.insert(f,replacestr);
-        f = stream.find(search,f+1);
+        f = stream.find(search,f+replacestr.size());
     }
-
     writeMode << stream;
-        
-     return (1);
+    return (1);
  }
-
 
  Sed::~Sed()
  {

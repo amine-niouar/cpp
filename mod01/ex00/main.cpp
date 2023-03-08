@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:05:31 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/21 13:26:36 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/02/26 10:56:56 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int main()
 {
-    Zombie m("old");
     Zombie *a = newZombie("boy");
-    randomChump("man");
-
+    a->announce();
+    Zombie m("old");
+    
+    randomChump("hi");
     delete a;
 }

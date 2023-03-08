@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 19:11:23 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/22 21:48:20 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/02/22 18:57:37 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Weapon
     public:
         Weapon();
         Weapon(std::string t);
-        const std::string* getType(void);
+        const std::string& getType(void);
         void setType(std::string t);
         ~Weapon();
 };

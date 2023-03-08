@@ -1,11 +1,11 @@
 SRCS = main.cpp Zombie.cpp zombieHorde.cpp
-NAME =  a.out
+NAME =  Zombiehorde
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=leak
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 all : $(NAME)
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)
 clean :
 	rm -f $(OBJS)
 fclean : clean

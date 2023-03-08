@@ -6,9 +6,14 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 19:24:36 by aniouar           #+#    #+#             */
-/*   Updated: 2023/01/23 21:20:32 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/02/23 10:01:47 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+#pragma once
+#ifndef __HUMANA_H__
+#define __HUMANA_H__
 
 #include <iostream>
 #include "Weapon.hpp"
@@ -23,3 +28,5 @@ class HumanA
         void attack();
         ~HumanA();
 };
+
+#endif

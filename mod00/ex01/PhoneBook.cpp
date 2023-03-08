@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 08:15:54 by aniouar           #+#    #+#             */
-/*   Updated: 2023/01/24 23:13:06 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/25 16:33:11 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ void PhoneBook::search_index(void)
         std::cout << "Enter an index : ";
         while(std::getline(std::cin, strInput))
         {
-              if(strInput.length() == 1)
+            if(strInput.length() == 1)
              {
                 inputIndex = strInput[0] - 48;
+                std::cout <<  "index : " << inputIndex << std::endl;
                 inputIndex -= 1;
              }
             break;
@@ -52,8 +53,8 @@ void PhoneBook::search_index(void)
             std::cout << "firstname : " << contacts[inputIndex].getFirstName() << std::endl;
             std::cout << "lastname : "  << contacts[inputIndex].getLastName() << std::endl;
             std::cout << "nickname : " << contacts[inputIndex].getNickName() << std::endl;
-            std::cout << "dark secret : " << contacts[inputIndex].getNickName() << std::endl;
-            std::cout << "phone number : " << contacts[inputIndex].getNickName() << std::endl;
+            std::cout << "dark secret : " << contacts[inputIndex].getDarkestSecret() << std::endl;
+            std::cout << "phone number : " << contacts[inputIndex].getPhoneNumber() << std::endl;
         }
         else
             std::cout << "Out of range ! " << std::endl;
@@ -85,6 +86,9 @@ void PhoneBook::search()
     int i;
     int myindex;
 
+    // view 
+
+    
     if(index == 0)
     {
         std::cout << "Phonebook is empty" << std::endl;
@@ -117,6 +121,8 @@ void PhoneBook::search()
         i++;
     }
 
+
+    // search in phonebook list per index
     search_index();
 
 }

@@ -1,14 +1,14 @@
 SRCS = main.cpp 
-NAME =  a.out
+NAME =  Brain
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 all : $(NAME)
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)
 clean :
 	rm -f $(OBJS)
 fclean : clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 re : fclean all
 .PHONY: clean fclean re all

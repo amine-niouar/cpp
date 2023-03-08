@@ -1,5 +1,5 @@
-SRCS = main.cpp file.cpp
-NAME =  Sed
+SRCS = main.cpp Harl.cpp
+NAME =  HarlFilter
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 

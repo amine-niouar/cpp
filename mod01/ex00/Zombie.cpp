@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:00:45 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/22 21:15:02 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/01/30 10:20:43 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Zombie::Zombie(std::string zombiename)
 
 void Zombie::announce(void)
 {
-    std::cout  << name << ":: BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout  << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 Zombie::~Zombie()

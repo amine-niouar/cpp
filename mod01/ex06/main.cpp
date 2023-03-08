@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 19:33:56 by aniouar           #+#    #+#             */
-/*   Updated: 2023/02/23 10:01:21 by aniouar          ###   ########.fr       */
+/*   Created: 2022/12/21 13:05:31 by aniouar           #+#    #+#             */
+/*   Updated: 2023/02/26 10:33:51 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef __HUMANB_H__
-#define __HUMANB_H__
+#include "Harl.hpp"
 
-#include <iostream>
-#include "Weapon.hpp"
-
-class HumanB
+int main(int ac,char **av)
 {
-    private:
-        Weapon* wp;
-        std::string name;
-    public:
-        HumanB(std::string n);
-        void setWeapon(Weapon& wpp);
-        void attack();
-        ~HumanB();
-};
+    Harl h;
+    
+    if(ac == 2)
+    {
+        std::string s_av(av[1]);
 
-#endif
+        h.complain(s_av);
+        // switch should inside class
+     
+    }
+}

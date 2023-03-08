@@ -6,15 +6,15 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/01/23 17:27:40 by aniouar          ###   ########.fr        #
+#    Updated: 2023/03/08 21:44:34 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomZombie.cpp
-NAME =  Zombie
-HEADER = Zombie.hpp
+SRCS = main.cpp Fixed.cpp
+NAME =  Fixed
+HEADER = Fixed.hpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98

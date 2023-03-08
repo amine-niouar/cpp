@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:56:00 by aniouar           #+#    #+#             */
-/*   Updated: 2022/12/21 19:06:46 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/02/26 10:56:24 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 int main()
 {
-    // it needs some reading whut ? reference you can call it allias 
-    // enouph and xD
+
    std::string str("HI THIS IS BRAIN");
    std::string *stringPTR = &str;
    std::string& stringREF = str;

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 19:33:56 by aniouar           #+#    #+#             */
-/*   Updated: 2023/02/23 10:01:21 by aniouar          ###   ########.fr       */
+/*   Created: 2023/03/07 03:25:13 by aniouar           #+#    #+#             */
+/*   Updated: 2023/03/08 21:47:52 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef __HUMANB_H__
-#define __HUMANB_H__
-
 #include <iostream>
-#include "Weapon.hpp"
 
-class HumanB
+
+class Fixed
 {
     private:
-        Weapon* wp;
-        std::string name;
+        int fixed_point;
+        static const int fract = 8;
     public:
-        HumanB(std::string n);
-        void setWeapon(Weapon& wpp);
-        void attack();
-        ~HumanB();
+        Fixed();
+        Fixed(Fixed &f);
+        Fixed& operator=(Fixed& f);
+        ~Fixed();
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
 };
-
-#endif

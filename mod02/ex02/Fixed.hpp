@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 03:25:13 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/12 22:57:53 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/03/26 00:32:42 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,40 @@ class Fixed
         static const int fract = 8;
     public:
         Fixed();
-        Fixed(const Fixed& f);
+        Fixed(const Fixed &f);
         Fixed(const int integer);
         Fixed(const float float_point);
-        Fixed& operator=(Fixed const & f);
+        
+        Fixed& operator=(const Fixed & f);
+
+        // Arithmetic
+        Fixed operator + (const Fixed& f);
+        Fixed operator - (const Fixed& f);
+        Fixed operator * (const Fixed& f);
+        Fixed operator / (const Fixed& f);
+
+        //compraison
+        bool operator > (Fixed f) const;
+        bool operator < (Fixed f) const;
+        bool operator >= (Fixed f) const;
+        bool operator <= (Fixed f) const;
+        bool operator == (Fixed f) const;
+        bool operator != (Fixed f) const;
+
+        //Post && Pre
+        Fixed& operator ++ ();
+        Fixed  operator++(int);
+        Fixed& operator -- ();
+        Fixed  operator--(int);
+
+
+        // min max shit
+
+        static Fixed & min(Fixed & f1,Fixed & f2);
+        static Fixed & min(const Fixed & f1,const Fixed & f2);
+        static Fixed & max(Fixed & f1,Fixed & f2);
+        static Fixed & max(const Fixed & f1,const Fixed & f2);
+
         ~Fixed();
         int getRawBits(void) const;
         void setRawBits(int const raw);
@@ -33,3 +63,5 @@ class Fixed
 };
 
 std::ostream & operator<<(std::ostream & o,Fixed const & f);
+
+

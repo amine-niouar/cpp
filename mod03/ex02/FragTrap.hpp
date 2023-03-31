@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 03:44:28 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/20 02:31:25 by aniouar          ###   ########.fr       */
+/*   Created: 2023/03/31 02:35:13 by aniouar           #+#    #+#             */
+/*   Updated: 2023/03/31 03:04:34 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-class Point
+class FragTrap : public ClapTrap
 {
-    private:
-        const Fixed x;
-        const Fixed y;
     public:
-        Point();
-        Point(Point const &p);
-        Point(const Fixed p1,const Fixed p2);
-        Point & operator = (const Point &p);
-        const Fixed getX() const;
-        const Fixed getY() const;
-        ~Point();
-        
+        FragTrap();
+        FragTrap(std::string n);
+        FragTrap(FragTrap &ft);
+        FragTrap& operator=(FragTrap& ft);
+        void highFivesGuys(void);
+        ~FragTrap();
 };
-
-
-
-bool bsp( Point const a, Point const b, Point const c, Point const point);

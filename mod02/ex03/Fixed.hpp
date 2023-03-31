@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 03:25:13 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/13 02:00:01 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/03/24 15:00:24 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ class Fixed
         static const int fract = 8;
     public:
         Fixed();
-        Fixed(const Fixed& f);
+        Fixed(const Fixed &f);
         Fixed(const int integer);
         Fixed(const float float_point);
         
-        Fixed& operator=(Fixed const & f);
+        Fixed& operator=(const Fixed & f);
 
         // Arithmetic
-        Fixed operator + (Fixed f) const;
-        Fixed operator - (Fixed f) const;
-        Fixed operator * (Fixed f) const;
-        Fixed operator / (Fixed f) const;
+        Fixed operator + (const Fixed& f);
+        Fixed operator - (const Fixed& f);
+        Fixed operator * (const Fixed& f);
+        Fixed operator / (const Fixed& f);
 
-        // compraison
+        //compraison
         bool operator > (Fixed f) const;
         bool operator < (Fixed f) const;
         bool operator >= (Fixed f) const;
@@ -41,7 +41,7 @@ class Fixed
         bool operator == (Fixed f) const;
         bool operator != (Fixed f) const;
 
-        // Post && Pre
+        //Post && Pre
         Fixed& operator ++ ();
         Fixed  operator++(int);
         Fixed& operator -- ();

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 03:25:13 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/22 02:25:58 by aniouar          ###   ########.fr       */
+/*   Created: 2023/03/30 23:34:27 by aniouar           #+#    #+#             */
+/*   Updated: 2023/03/31 01:29:30 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-
-class Fixed
+class ClapTrap
 {
     private:
-        int fixed_point;
-        static const int fract = 8;
+        std::string name;
+        int hit;
+        int energy;
+        int damage;
     public:
-        Fixed();
-        Fixed(Fixed &f);
-        Fixed& operator=(Fixed& f);
-        ~Fixed();
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
+        ClapTrap();
+        ClapTrap(std::string n,int h,int e,int d);
+        ClapTrap(ClapTrap& ct);
+        ClapTrap& operator=(ClapTrap &c);
+        ~ClapTrap();
+        void attack(const std::string& target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
+        const std::string& getName() const;
 };

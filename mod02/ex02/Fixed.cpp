@@ -1,14 +1,14 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        :::      ::::::::   */
-// /*   Fixed.cpp                                          :+:      :+:    :+:   */
-// /*                                                    +:+ +:+         +:+     */
-// /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
-// /*                                                +#+#+#+#+#+   +#+           */
-// /*   Created: 2023/03/21 23:55:42 by aniouar           #+#    #+#             */
-// /*   Updated: 2023/03/22 18:19:05 by aniouar          ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/21 23:55:42 by aniouar           #+#    #+#             */
+/*   Updated: 2023/03/26 01:18:02 by aniouar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Fixed.hpp"
 
@@ -81,17 +81,16 @@ Fixed Fixed::operator - (const Fixed &f)
 
 Fixed Fixed::operator * (const Fixed &f)
 {
-    
-
     Fixed c;
-     c.fixed_point = (this->fixed_point * f.fixed_point) / (float)(1 << fract);
+
+    c.fixed_point = (this->fixed_point * f.fixed_point) / (float)(1 << fract);
     return (c);
 }
 
 Fixed Fixed::operator / (const Fixed &f)
 {
     float res;
-    
+
     res =  ((float) fixed_point / f.fixed_point);
     return (Fixed(res));
 }
@@ -201,7 +200,6 @@ std::ostream & operator<<(std::ostream & o,Fixed const & f)
 
  Fixed & Fixed::min(const Fixed & f1,const Fixed & f2)
 {
-    Fixed f;
     if(f1.fixed_point < f2.fixed_point)
        return ((Fixed &)f1);
 

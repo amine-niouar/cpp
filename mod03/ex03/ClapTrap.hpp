@@ -6,13 +6,19 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:34:27 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 15:03:58 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/01 00:02:34 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#ifndef __CLAPTRAP_H__
+#define __CLAPTRAP_H__
+
 #include <iostream>
 
-class ClapTrap
+
+
+ class ClapTrap
 {
     protected:
         std::string name;
@@ -29,3 +35,5 @@ class ClapTrap
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };
+
+#endif

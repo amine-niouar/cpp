@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:37:44 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 17:28:05 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/01 02:04:21 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
+   
     hit = 100;
     energy = 50;
     damage = 20;
@@ -23,6 +24,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(std::string n) : ClapTrap(n)
 {
+    name = n;
     hit = 100;
     energy = 50;
     damage = 20;

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:34:27 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 01:26:28 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/03/31 14:59:22 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ClapTrap
         int damage;
     public:
         ClapTrap();
-        ClapTrap(std::string n,int h,int e,int d);
+        ClapTrap(std::string n);
         ClapTrap(ClapTrap& ct);
         ClapTrap& operator=(ClapTrap &c);
         ~ClapTrap();

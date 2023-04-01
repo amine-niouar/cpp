@@ -1,0 +1,15 @@
+ClapTrap russia is created 
+ScavTrap russia is created
+FragTrap russia is created
+DiamondTrap russia is created
+ClapTrap ukraine is created 
+ScavTrap ukraine is created
+FragTrap ukraine is created
+DiamondTrap ukraine is created
+FragTrap ukraine is destructed
+ScavTrap ukraine is destructed
+ClapTrap ukraine is destructed
+FragTrap russia is destructed
+ScavTrap russia is destructed
+ClapTrap russia is destructed
+

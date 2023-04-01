@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:41:14 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 17:28:33 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/01 02:04:28 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-    hit = 100;
+     hit = 100;
     energy = 100;
     damage = 30;
     std::cout << "FragTrap "<< name  << " is created" << std::endl;
@@ -22,6 +22,7 @@ FragTrap::FragTrap() : ClapTrap()
 
 FragTrap::FragTrap(std::string n) : ClapTrap(n)
 {
+    name = n;
     hit = 100;
     energy = 100;
     damage = 30;

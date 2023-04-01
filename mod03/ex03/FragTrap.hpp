@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 00:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 14:59:57 by aniouar          ###   ########.fr       */
+/*   Created: 2023/03/31 02:35:13 by aniouar           #+#    #+#             */
+/*   Updated: 2023/04/01 00:02:47 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "ClapTrap.hpp"
 
-int main()
+class FragTrap : virtual public ClapTrap
 {
-    std::string n1("russia"),n2("ukraine");
-    ClapTrap f1(n1),f2(n2);
-    
-    f1.takeDamage(10);
-    f2.takeDamage(2);
-    f1.attack(n2);
-    f2.attack(n1);
-    f2.beRepaired(6);
-    f1.beRepaired(4);
-
-
-    
-    
-}
+    public:
+        FragTrap();
+        FragTrap(std::string n);
+        FragTrap(FragTrap &ft);
+        FragTrap& operator=(FragTrap& ft);
+        void highFivesGuys(void);
+        ~FragTrap();
+};

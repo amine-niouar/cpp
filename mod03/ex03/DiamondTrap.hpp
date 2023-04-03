@@ -6,14 +6,14 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:15:29 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/01 01:54:35 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/02 02:16:55 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap: public ScavTrap ,public FragTrap
+class DiamondTrap: public FragTrap ,public ScavTrap
 {
     private:
         std::string name;
@@ -24,5 +24,6 @@ class DiamondTrap: public ScavTrap ,public FragTrap
         DiamondTrap& operator=(DiamondTrap& dt);
         void attack(const std::string& target);
         void whoami();
+        void show();
         ~DiamondTrap();
 };

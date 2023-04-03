@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:42:34 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/01 02:36:03 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/02 23:24:20 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap& ct)
         energy = ct.energy;
         damage = ct.damage;
     }
-
+    std::cout << "ClapTrap " << name << " is assigned" << std::endl;
     return *this;
 }
 

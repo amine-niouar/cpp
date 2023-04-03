@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:41:14 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 17:28:33 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/03 01:22:20 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ FragTrap::FragTrap(std::string n) : ClapTrap(n)
 
 FragTrap::FragTrap(FragTrap &ft) : ClapTrap(ft)
 {
-    
+    std::cout << "FragTrap " << name << " is created" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)
@@ -41,7 +41,8 @@ void FragTrap::highFivesGuys(void)
 FragTrap& FragTrap::operator=(FragTrap& ft)
 {
     if(this != &ft)
-        FragTrap::operator=(ft);
+        ClapTrap::operator=(ft);
+    std::cout << "FragTrap " << name << " is assigned" << std::endl;
     return *this;
 }
 

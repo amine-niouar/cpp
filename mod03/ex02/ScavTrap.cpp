@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:37:44 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 17:28:05 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/03 00:21:12 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ ScavTrap::ScavTrap(std::string n) : ClapTrap(n)
 
 ScavTrap::ScavTrap(ScavTrap& st) : ClapTrap(st)
 {
-    
+    std::cout << "ScavTrap " << name << " is created" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap& st) 
 {
     if(this != &st)
         ClapTrap::operator=(st);
-    // use this
+    std::cout << "ScavTrap " << name << " is assigned" << std::endl;
     return *this;
 }
 

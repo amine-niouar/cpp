@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:52:59 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/01 02:13:04 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/03 02:47:28 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,36 @@
 
 
 
-DiamondTrap::DiamondTrap() : ScavTrap() , FragTrap()
+DiamondTrap::DiamondTrap() : FragTrap() , ScavTrap() 
 {
-    
+    this->hit = FragTrap::hit;
+    this->energy = ScavTrap::energy;
+    this->damage = FragTrap::damage;
 }
 
-DiamondTrap::DiamondTrap(std::string n) : ClapTrap(n) , ScavTrap(n) , FragTrap(n) 
+DiamondTrap::DiamondTrap(std::string n) : ClapTrap(n+ "_clap_name")  , FragTrap(n + "_clap_name") , ScavTrap(n + "_clap_name")
 {
     DiamondTrap::name = n;
     this->hit = FragTrap::hit;
     this->energy = ScavTrap::energy;
-    this->damage = FragTrap::damage;
+    this->damage = 30;
     std::cout << "DiamondTrap " << this->name << " is created" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap& dt) : ScavTrap(dt) , FragTrap(dt)
+DiamondTrap::DiamondTrap(DiamondTrap& dt) : ClapTrap(dt),  FragTrap(dt), ScavTrap(dt)
 {
-    
+    this->name = dt.name;
+    std::cout << "DiamondTrap " << name << " is copied" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(DiamondTrap& dt)
 {
     if(this != &dt)
-        ;
+    {
+        this->name = dt.name;
+        ClapTrap::operator=(dt);
+    }
+    std::cout << "DiamondTrap " << name << " is assigned" << std::endl;
     return *this;
 }
 
@@ -49,7 +56,12 @@ void DiamondTrap::attack(const std::string& target)
 
 void DiamondTrap::whoami()
 {
-     std::cout << "Im  " << name << " a DiamondTrap and my grandbase name is " << ClapTrap::name + "_clap_trap" << std::endl;
+    std::cout << "Im  " << name << " a DiamondTrap and my grandbase name is " << ClapTrap::name << std::endl;
+}
+
+void DiamondTrap::show()
+{
+    std::cout << hit << " " << energy << " " << damage << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()

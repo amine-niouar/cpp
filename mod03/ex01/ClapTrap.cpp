@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:42:34 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 17:14:21 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/03 00:17:22 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ ClapTrap::ClapTrap()
     hit = 10;
     energy = 10;
     damage = 0;
+    std::cout << "ClapTrap " << name << " is created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string n)
@@ -49,7 +50,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap& ct)
         energy = ct.energy;
         damage = ct.damage;
     }
-
+    std::cout << "ClapTrap " << name << " is assigned" << std::endl;
     return *this;
 }
 
@@ -66,7 +67,6 @@ void ClapTrap::attack(const std::string& target)
         << " points of damage! " << std::endl;
         energy -= 1;
     }
-    
 }
 
 void ClapTrap::takeDamage(unsigned int amount)

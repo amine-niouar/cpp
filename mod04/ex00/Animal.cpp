@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 04:12:51 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/05 04:40:05 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/05 06:02:40 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ const std::string& Animal::getType(void) const
     return type;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
     std::cout << "Silence Silence Silence " << std::endl;
 }

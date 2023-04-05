@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 04:30:35 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/05 04:42:22 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/05 06:06:12 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ Cat& Cat::operator=(Cat &c)
     return *this;   
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
     std::cout << "Meo Meo Meo " << std::endl;
 }
 
-Cat::~Animal()
+Cat::~Cat()
 {
     
 }

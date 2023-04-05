@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/05 04:19:01 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/05 06:06:08 by aniouar          ###   ########.fr       */
+/*   Created: 2023/04/05 06:07:12 by aniouar           #+#    #+#             */
+/*   Updated: 2023/04/05 06:18:54 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#pragma once
+#ifndef __WRONG_ANIMAL_H__
+#define __WRONG_ANIMAL_H__
 
+#include <iostream>
 
-Dog::Dog() : Animal()
+class WrongAnimal
 {
-    type = "dog";
-}
+    protected:
+        std::string type;
 
-Dog::Dog(Dog &d) : Animal(d)
-{
-    
-}
+    public:
+        WrongAnimal();
+        WrongAnimal(WrongAnimal &wan);
+        WrongAnimal& operator=(WrongAnimal &wan);
+        const std::string& getType(void)const;
+         void makeSound() const;
+        ~WrongAnimal();
+      
+};
 
-Dog& Dog::operator=(Dog &d)
-{
-    if(this != &d)
-        Animal::operator=(d);
-    return *this;   
-}
-
-void Dog::makeSound() const
-{
-    std::cout << "Barking Barking Barking " << std::endl;
-}
-
-Dog::~Dog()
-{
-    
-}
+#endif

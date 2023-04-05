@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/05 04:19:01 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/05 06:06:08 by aniouar          ###   ########.fr       */
+/*   Created: 2023/04/05 06:10:26 by aniouar           #+#    #+#             */
+/*   Updated: 2023/04/05 06:14:45 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongAnimal.hpp"
 
 
-Dog::Dog() : Animal()
+class WrongCat : public WrongAnimal
 {
-    type = "dog";
-}
+    public:
+        WrongCat();
+        WrongCat(WrongCat &wc);
+        WrongCat& operator=(WrongCat &wc);
+        ~WrongCat();
+        void makeSound() const;
+};
 
-Dog::Dog(Dog &d) : Animal(d)
-{
-    
-}
-
-Dog& Dog::operator=(Dog &d)
-{
-    if(this != &d)
-        Animal::operator=(d);
-    return *this;   
-}
-
-void Dog::makeSound() const
-{
-    std::cout << "Barking Barking Barking " << std::endl;
-}
-
-Dog::~Dog()
-{
-    
-}

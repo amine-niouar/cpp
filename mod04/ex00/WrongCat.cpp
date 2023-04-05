@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/05 04:19:01 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/05 06:06:08 by aniouar          ###   ########.fr       */
+/*   Created: 2023/04/05 06:11:37 by aniouar           #+#    #+#             */
+/*   Updated: 2023/04/05 06:20:31 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-
-Dog::Dog() : Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-    type = "dog";
+    type = "wrongcat";
 }
 
-Dog::Dog(Dog &d) : Animal(d)
+WrongCat::WrongCat(WrongCat &wc) : WrongAnimal(wc)
 {
     
 }
 
-Dog& Dog::operator=(Dog &d)
+WrongCat& WrongCat::operator=(WrongCat &wc)
 {
-    if(this != &d)
-        Animal::operator=(d);
+    if(this != &wc)
+        WrongAnimal::operator=(wc);
     return *this;   
 }
 
-void Dog::makeSound() const
+void WrongCat::makeSound() const
 {
-    std::cout << "Barking Barking Barking " << std::endl;
+    std::cout << "Meo Meo Meo " << std::endl;
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
     
 }
+

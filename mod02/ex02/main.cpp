@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 03:52:39 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/26 01:18:39 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/06 03:14:28 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@ int main( void )
 {
     Fixed a;
 
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed const b( Fixed( 42.42f ) * Fixed( 1234.4321f ) );
 
-    std::cout << a << std::endl;
+    // std::cout << a << std::endl;
+    // std::cout << b << std::endl;
+    // std::cout << ++a << std::endl;
+    // std::cout << a << std::endl;
+    // std::cout << a++ << std::endl;
+    // std::cout << a << std::endl;
     std::cout << b << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << 42.4219f * 1234.43f << std::endl;
+    // std::cout << Fixed::max( a, b ) << std::endl;
     return 0;
 }
 

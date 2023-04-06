@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 01:06:11 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/02 23:26:24 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int main()
 {
     std::string n1("russia"),n2("ukraine");
-    ClapTrap f1(n1,10,10,0),f2(n2,10,10,0);
+    ClapTrap f1(n1),f2(n2);
+
     
     f1.takeDamage(10);
     f2.takeDamage(2);

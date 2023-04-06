@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:37:44 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 02:23:50 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/03 02:06:45 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-    std::cout << "ScavTrap " << getName() << " is created" << std::endl;
+    hit = 100;
+    energy = 50;
+    damage = 20;
+    std::cout << "ScavTrap " << name << " is created" << std::endl;
 }
 
 
-ScavTrap::ScavTrap(std::string n) : ClapTrap(n,100,50,20)
+ScavTrap::ScavTrap(std::string n) : ClapTrap(n)
 {
-    std::cout << "ScavTrap " << getName() << " is created" << std::endl;
+    hit = 100;
+    energy = 50;
+    damage = 20;
+    std::cout << "ScavTrap " << name << " is created" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap& st) : ClapTrap(st)
 {
-    
+    std::cout << "ScavTrap " << name << " is copied" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap& st) 
@@ -37,17 +43,17 @@ ScavTrap& ScavTrap::operator=(ScavTrap& st)
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap " << getName() << " is now in Gate Keeper mode" << std::endl;
+    std::cout << "ScavTrap " << name << " is now in Gate Keeper mode" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
     ClapTrap::attack(target);
-    std::cout << "ScavTrap " << getName() << " attacks " << target  << std::endl;
+    std::cout << "ScavTrap " << name << " attacks " << target  << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-     std::cout << "ScavTrap " << getName() << " is destructed" << std::endl;
+     std::cout << "ScavTrap " << name << " is destructed" << std::endl;
 }
 

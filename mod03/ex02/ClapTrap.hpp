@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:34:27 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 01:29:30 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/03/31 15:20:43 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string name;
         int hit;
         int energy;
         int damage;
     public:
         ClapTrap();
-        ClapTrap(std::string n,int h,int e,int d);
+        ClapTrap(std::string n);
         ClapTrap(ClapTrap& ct);
         ClapTrap& operator=(ClapTrap &c);
         ~ClapTrap();
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        const std::string& getName() const;
 };

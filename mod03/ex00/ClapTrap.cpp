@@ -6,26 +6,27 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:42:34 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/31 01:29:05 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/02 23:24:20 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap()
+ClapTrap::ClapTrap()
 {
-    n = "";
+    name = "";
     hit = 10;
     energy = 10;
-    d = 0;
+    damage = 0;
+    std::cout << "ClapTrap " << " is created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string n,int h,int e,int d)
+ClapTrap::ClapTrap(std::string n)
 {
     name = n;
-    hit = h;
-    energy = e;
-    damage = d;
+    hit = 10;
+    energy = 10;
+    damage = 0;
 
     std::cout << "ClapTrap " << name << " is created" << std::endl;
 }
@@ -49,7 +50,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap& ct)
         energy = ct.energy;
         damage = ct.damage;
     }
-
+    std::cout << "ClapTrap " << name << " is assigned" << std::endl;
     return *this;
 }
 
@@ -73,14 +74,18 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if(hit > 0 && energy > 0)
     {
-        damage += amount;
+        hit -= amount;
         std::cout << "ClapTrap " << name << " take damage " << amount << std::endl;
     }
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    hit += amount;
-    energy -= 1;
-    std::cout << "ClapTrap " << name << " is repaired with " << amount << std::endl;
+    if(hit > 0 && energy > 0)
+    {
+        hit += amount;
+        energy -= 1;
+        std::cout << "ClapTrap " << name << " is repaired with " << amount << std::endl;
+    }
+   
 }

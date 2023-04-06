@@ -6,7 +6,7 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/03/31 01:14:37 by aniouar          ###   ########.fr        #
+#    Updated: 2023/04/02 23:47:24 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 NAME =  ScavTrap
-HEADER = ClapTrap.cpp
+HEADER = ClapTrap.hpp ScavTrap.hpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 23:55:42 by aniouar           #+#    #+#             */
-/*   Updated: 2023/03/26 01:18:02 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/06 03:17:43 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,13 @@ Fixed Fixed::operator * (const Fixed &f)
 {
     Fixed c;
 
-    c.fixed_point = (this->fixed_point * f.fixed_point) / (float)(1 << fract);
+    c.fixed_point =  (float)(f.fixed_point) / (1 << fract) * (this->fixed_point);
     return (c);
 }
 
 Fixed Fixed::operator / (const Fixed &f)
 {
     float res;
-
     res =  ((float) fixed_point / f.fixed_point);
     return (Fixed(res));
 }

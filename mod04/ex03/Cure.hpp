@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 00:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 14:36:30 by aniouar          ###   ########.fr       */
+/*   Created: 2023/04/06 14:25:45 by aniouar           #+#    #+#             */
+/*   Updated: 2023/04/06 15:18:08 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "AMateria.hpp"
 
 
-    
-int main()
+class Cure : public AMateria
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-    
-
-
-   
-    
-    delete j;
-    delete i;
-    
-    while(1);
-    return 0;
-}
-
+       public:
+            Cure();
+            Cure(Cure &i);
+            Cure& operator=(Cure &i);
+            AMateria* clone() const;
+            void use(ICharacter &target);
+            ~Cure();
+};

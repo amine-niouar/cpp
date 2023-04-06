@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 02:41:07 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 03:32:38 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/06 15:11:43 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AMateria
         std::string const & getType() const;
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter &target);
-        ~AMateria();
+         ~AMateria();
 };
 
 

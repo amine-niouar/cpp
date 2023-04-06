@@ -1,35 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 00:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 14:36:30 by aniouar          ###   ########.fr       */
+/*   Created: 2023/04/06 14:21:39 by aniouar           #+#    #+#             */
+/*   Updated: 2023/04/06 15:15:18 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "Ice.hpp"
 
-
-    
-int main()
+Ice::Ice() : AMateria()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-    
-
-
-   
-    
-    delete j;
-    delete i;
-    
-    while(1);
-    return 0;
+    type = "ice";
 }
 
+Ice::Ice(Ice &i) : AMateria(i)
+{
+    type = i.type;
+}
+
+
+Ice& Ice::operator=(Ice &i)
+{
+    if(this != &i)
+        type = i.type;
+    return (*this);
+}
+
+AMateria* Ice::clone() const
+{
+    AMateria* am;
+
+    am = new Ice();
+
+    return am;
+}
+
+void Ice::use(ICharacter &target)
+{
+    (void)target;
+}
+
+Ice::~Ice()
+{
+    
+}

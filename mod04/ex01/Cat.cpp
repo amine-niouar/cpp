@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:21:41 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 01:06:11 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/06 14:38:54 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,18 @@ Cat::Cat() : Animal()
 
 Cat::Cat(Cat &c) : Animal(c)
 {
+    b = new Brain();
     *b = *(c.b);
 }
 
 Cat& Cat::operator=(Cat &c)
 {
     if(this != &c)
+    {
+        *b = *(c.b);
         Animal::operator=(c);
+    }
+        
     return *this;
 }
 

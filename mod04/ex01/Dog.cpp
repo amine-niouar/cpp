@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 23:41:30 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 01:05:49 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/06 14:43:55 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,16 @@ Dog::Dog(Dog &d) : Animal(d)
 {
     b = new Brain();
     *b = *(d.b);
+    
 }
 
 Dog& Dog::operator=(Dog &d)
 {
     if(this != &d)
+    {
+        *b = *(d.b);
         Animal::operator=(d);
+    }
     return *this;
 }
 

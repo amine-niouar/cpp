@@ -6,15 +6,15 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/04/06 03:29:18 by aniouar          ###   ########.fr        #
+#    Updated: 2023/04/06 15:53:33 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS = main.cpp ICharacter.cpp AMateria.cpp 
+SRCS = main.cpp  AMateria.cpp Ice.cpp Cure.cpp
 NAME =  Materia
-HEADER =  ICharacter.hpp AMateria.hpp
+HEADER =  ICharacter.hpp AMateria.hpp Ice.hpp Cure.hpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 

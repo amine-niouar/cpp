@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:31:31 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 15:52:19 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/06 18:17:48 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ Character::Character()
 
 Character::Character(Character &i)
 {
+    (void)i;
     //type = i.type;
 }
 
-std::string const & Character::getName()
+std::string const & Character::getName() const
 {
     return name;
 }
@@ -36,7 +37,8 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
     // add more code
-    delete slots[idx];
+    //delete slots[idx];
+    (void)idx;
 }
 
 void Character::use(int idx, ICharacter& target)

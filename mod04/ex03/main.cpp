@@ -6,19 +6,42 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 03:24:19 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/07 03:18:48 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "ICharacter.hpp"
-#include "AMateria.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
     
 int main()
 {
-    std::cout << "hello " << std::endl;
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+
+    
+    ICharacter* me = new Character("me");
+
+    
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+
+    
+    ICharacter* bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
+
+    //while (1);
+
+    
+    //std::cout << tmp->getType() << std::endl;
+    //std::cout << "hello " << std::endl;
     //while(1);
     return 0;
 }

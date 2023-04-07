@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:05:43 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 18:05:05 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/06 23:32:54 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
-class MateriaSource : IMateriaSource
+class MateriaSource : public IMateriaSource
 {
     private:
         int index;
@@ -22,6 +22,6 @@ class MateriaSource : IMateriaSource
     public:
         MateriaSource();
         void learnMateria(AMateria* am);
-        AMateria* createMateria(std::string const& r);
+        AMateria* createMateria(std::string const&);
         ~MateriaSource(); 
 };

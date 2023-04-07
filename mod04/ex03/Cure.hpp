@@ -6,12 +6,12 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:25:45 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 15:18:08 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/06 23:54:30 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
-
+#include "Character.hpp"
 
 class Cure : public AMateria
 {

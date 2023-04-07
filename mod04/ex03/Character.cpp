@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:31:31 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 18:17:48 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/07 03:17:08 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 Character::Character() 
 {
-    
+    index = 0;
+}
+
+Character::Character(std::string n)
+{
+     index = 0;
+    name = n;
 }
 
 Character::Character(Character &i)
@@ -30,6 +36,7 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+        
     slots[index] = m;
     index++;
 }
@@ -43,8 +50,10 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    (void)idx;
-    (void)target;
+    if(index > 0)
+        slots[idx]->use(target);
+    
+    //std::cout << "* heals   " << slots[idx]->getType() << " wounds"  << target.getName() << std::endl;
 }
 
 Character& Character::operator=(Character &i)

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:58:47 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/07 03:10:44 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/07 06:22:22 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 MateriaSource::MateriaSource()
 {
-    
     index = 0;
     slots[index] = 0;
 }
@@ -22,7 +21,6 @@ void MateriaSource::learnMateria(AMateria* am)
 {
     if(index < 4)
     {
-       
         slots[index] = am;
         index++;
     }
@@ -43,8 +41,6 @@ AMateria* MateriaSource::createMateria(std::string const& r)
                   return (am);
             }
     }
-        
-
     return (0);
 }
 

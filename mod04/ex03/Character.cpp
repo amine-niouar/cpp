@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:31:31 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/07 03:17:08 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/07 07:20:56 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,15 @@ Character::Character(std::string n)
      index = 0;
     name = n;
 }
-
+    
 Character::Character(Character &i)
 {
-    (void)i;
-    //type = i.type;
+    int x(-1);
+    
+    name = i.name;
+    index = i.index;
+    while(++x < i.index)
+        slots[x] = i.slots[x];
 }
 
 std::string const & Character::getName() const
@@ -43,22 +47,50 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    // add more code
-    //delete slots[idx];
-    (void)idx;
+    int keepIndex;
+    int i;
+    
+    if(idx < index)
+    {
+        i = 0;
+        keepIndex = index - 1;
+        slots[idx] = 0;
+        while(idx < keepIndex)
+        {
+                slots[idx] = slots[idx + 1];
+                slots[idx + 1] = 0;
+                std::cout << slots[idx]->getType() << std::endl;
+            i++;
+            idx++;
+        }
+        index--;
+        std::cout << "after" << std::endl;
+        i = 0;
+        while(i < index)
+        {
+            std::cout << slots[i]->getType() << " ";
+            i++;
+        }
+        std::cout << std::endl;
+    }
 }
 
 void Character::use(int idx, ICharacter& target)
 {
     if(index > 0)
         slots[idx]->use(target);
-    
-    //std::cout << "* heals   " << slots[idx]->getType() << " wounds"  << target.getName() << std::endl;
 }
 
 Character& Character::operator=(Character &i)
 {
-    (void)i;
+    int x(-1);
+    if(this != &i)
+    {
+        name = i.name;
+        index = i.index;
+        while(++x < i.index)
+             slots[x] = i.slots[x];
+    }
     return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:27:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/07 02:21:46 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/08 01:39:22 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 
 #include "AMateria.hpp"
+#include "Ice.hpp"
 
 #include <iostream>
 

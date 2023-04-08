@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:31:31 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/07 07:20:56 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/08 02:24:43 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Character::Character()
 
 Character::Character(std::string n)
 {
-     index = 0;
+    index = 0;
     name = n;
 }
     
@@ -50,11 +50,14 @@ void Character::unequip(int idx)
     int keepIndex;
     int i;
     
+
+    
     if(idx < index)
     {
         i = 0;
         keepIndex = index - 1;
-        slots[idx] = 0;
+        // delete slots[idx];
+        slots[idx] = nullptr;
         while(idx < keepIndex)
         {
                 slots[idx] = slots[idx + 1];
@@ -77,7 +80,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    if(index > 0)
+    if(index > 0 && idx < index)
         slots[idx]->use(target);
 }
 

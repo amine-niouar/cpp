@@ -6,7 +6,7 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/04/07 02:22:14 by aniouar          ###   ########.fr        #
+#    Updated: 2023/04/07 23:59:36 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME =  Materia
 HEADER =  ICharacter.hpp AMateria.hpp Ice.hpp Cure.hpp IMateriaSource.hpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 #-fsanitize=address
 all : $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:21:39 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/07 07:01:09 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/09 01:24:52 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Ice& Ice::operator=(Ice &i)
 AMateria* Ice::clone() const
 {
     AMateria* am;
+
 
     am = new Ice();
 

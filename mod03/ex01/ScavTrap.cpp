@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:37:44 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/03 02:06:45 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/08 23:58:14 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void ScavTrap::guardGate()
 
 void ScavTrap::attack(const std::string& target)
 {
-    ClapTrap::attack(target);
+    //ClapTrap::attack(target);
     std::cout << "ScavTrap " << name << " attacks " << target  << std::endl;
 }
 

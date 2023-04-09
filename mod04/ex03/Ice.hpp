@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:25:45 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/08 01:40:13 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/09 01:23:42 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Ice : public AMateria
 {
        public:
             Ice();
-            Ice(Ice &i);
+            Ice(Ice& i);
             Ice& operator=(Ice &i);
             AMateria* clone() const;
             void use(ICharacter &target);

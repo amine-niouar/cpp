@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 02:50:10 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/07 02:11:41 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/09 05:35:04 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class ICharacter
         virtual void equip(AMateria* m) = 0;
         virtual void unequip(int idx) = 0;
         virtual void use(int idx, ICharacter& target) = 0;
+        virtual AMateria* getCopy(int idx) const = 0; 
 };
 
 

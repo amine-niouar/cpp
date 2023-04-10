@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:58:47 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/09 01:27:51 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/10 02:57:46 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ MateriaSource::MateriaSource()
 MateriaSource::MateriaSource(MateriaSource &m)
 {
     int x(-1);
+
+     for(int i = 0; i < 4; i++)
+        slots[i] = NULL;
     
     index = m.index;
     while(++x < m.index)
-    {
-        if(slots[x])
             slots[x] = m.slots[x]->clone();
-    }
        
 }
 
@@ -44,7 +44,8 @@ MateriaSource& MateriaSource::operator=(MateriaSource &m)
         while(++x < m.index)
         {
             if(slots[x])
-                slots[x] = m.slots[x]->clone();
+                delete slots[x];
+            slots[x] = m.slots[x]->clone();
         }
     }
     return (*this);

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/08 01:31:34 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/10 03:27:47 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-    
 
-int main()
+void f()
 {
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
@@ -34,6 +33,19 @@ int main()
     j->makeSound();
     meta->makeSound();
 
-     d->makeSound();
+    d->makeSound();
+    
+
+    delete meta;
+    delete j;
+    delete i;
+    delete d;
+}
+
+
+int main()
+{
+    f();
+    while (1);    
     return 0;
 }

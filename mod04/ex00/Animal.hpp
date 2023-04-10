@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 23:29:14 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 14:09:28 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/10 03:24:40 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
         Animal(Animal &a);
         const std::string& getType(void) const;
         Animal& operator=(Animal &a);
-        ~Animal();  
+        virtual ~Animal();  
 };
 
 #endif

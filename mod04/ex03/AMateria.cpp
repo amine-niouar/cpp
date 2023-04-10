@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 02:45:42 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/07 07:00:01 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/10 03:01:14 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 AMateria::AMateria()
 {
     
+}
+
+AMateria::AMateria(std::string const & type)
+{
+    this->type = type;
 }
 
 

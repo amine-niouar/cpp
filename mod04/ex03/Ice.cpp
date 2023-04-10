@@ -6,18 +6,18 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:21:39 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/09 01:24:52 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/10 03:01:27 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria()
+Ice::Ice() : AMateria("ice")
 {
-    type = "ice";
+    
 }
 
-Ice::Ice(Ice &i) : AMateria(i)
+Ice::Ice(Ice &i) 
 {
     type = i.type;
 }

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:49:54 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/10 03:18:54 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/11 23:28:13 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongAnimal::WrongAnimal()
 {
-    std::cout << "WrongWrongAnimal is created" << std::endl;
+    std::cout << "WrongAnimal is created" << std::endl;
    
    
      

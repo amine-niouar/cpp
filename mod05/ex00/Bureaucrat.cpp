@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/06 02:45:42 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/12 00:19:45 by aniouar          ###   ########.fr       */
+/*   Created: 2023/04/13 09:56:37 by aniouar           #+#    #+#             */
+/*   Updated: 2023/04/13 10:01:04 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Bureaucrat.hpp"
 
-AMateria::AMateria()
+Bureaucrat::Bureaucrat():name(""),grade(0)
 {
-    std::cout << "AMateria is created" << std::endl;
+    
 }
 
-AMateria::AMateria(std::string const & type)
+Bureaucrat::Bureaucrat(Bureaucrat &b)
 {
-    this->type = type;
+    grade = b.grade;
 }
 
-
-
-std::string const & AMateria::getType() const
+Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
 {
-    return type;
+    if(this != &b)
+        grade = b.grade;
+    return (*this)
 }
 
-void AMateria::use(ICharacter &target)
-{
-    std::cout << target.getName() << std::endl;
-}
+ const std::string& Bureaucrat::getName()
+ {
+    return (name);
+ }
 
-AMateria::~AMateria()
-{
-    std::cout << "AMateria gets destructed " << std::endl;
-}
+  const int& Bureaucrat::getGrade()
+  {
+    return (grade);
+  }
+
+  Bureaucrat::~Bureaucrat()
+  {
+    
+  }

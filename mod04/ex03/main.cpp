@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/09 05:50:12 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/14 03:04:43 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,87 @@
 #include "MateriaSource.hpp"
 
 #include <stdlib.h>
-void f()
+
+// void f()
+// {
+//   IMateriaSource* src = new MateriaSource();
+//     src->learnMateria(new Ice());
+//     src->learnMateria(new Cure());
+//     ICharacter* me = new Character("me");
+//     AMateria* tmp;
+//     tmp = src->createMateria("ice");
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     ICharacter* bob = new Character("bob");
+//     me->use(0, *bob);
+//     me->use(1, *bob);
+//     delete bob;
+//     delete me;
+//     delete src;
+// }
+
+int main()
 {
-   
-    IMateriaSource *src = new MateriaSource();
+    IMateriaSource* src = new MateriaSource();
+
+    // adding materia to slots Materia Source
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    Character *me = new Character("me");
-    (void)me;
-    ICharacter *t = new Character("t");
-    
-    AMateria *tmp;
-    
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
+
+    // create materia in MateriaSource and equip it to Character
     tmp = src->createMateria("ice");
-    t->equip(tmp);
-
+    me->equip(tmp);
     tmp = src->createMateria("cure");
-    t->equip(tmp);
+    me->equip(tmp);
+
+    // making another two amateria for testing unequip
+
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+
+    // testing the copy assignement of Character
     
+    IMateriaSource* another_src = new MateriaSource();
+    ICharacter  *person = new Character("person");
+    tmp = another_src->createMateria("ice");
+    person->equip(tmp);
+    tmp = another_src->createMateria("cure");
+    person->equip(tmp);
+    
+    Character  *newperson = new Character("person");
+
+    std::cout << "------------------" << std::endl;
+    newperson = *person;
+    std::cout << "Materia type " <<  newperson->getCopy(0)->getType() << std::endl;
+    std::cout << "------------------" << std::endl;
+    
+     
+    
+    // getting an copy before unequip for avoid leaks
+    AMateria *copy = me->getCopy(2);
+    me->unequip(2);
+    delete copy;
+    
+    copy = me->getCopy(2);
+    me->unequip(2);
+    delete copy;
+
+    // calling the message of materia depend on the type
+    ICharacter* bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
 
     
-    
-    
-    
-    //AMateria *copy = t->getCopy(0);
-   // t->unequip(0);
-    //(void)copy;
-
-    
-   // t->unequip(0);
-    
-    ICharacter *bob = new Character("bob");
-    (void)bob;
-
-    *t = *me;
-
-
-   // std::cout << "testing copy " << you.getName() << std::endl;
-    
-    // me->use(0, *bob);
-    // me->use(1, *bob);
     delete bob;
     delete me;
     delete src;
-    delete t;
 
-    //delete copy;
-    //delete you;
-    //delete b;
- }
-int main()
-{
-  f();
-    while(1);
+    // f();
+    // while(1);
     return 0;
 }

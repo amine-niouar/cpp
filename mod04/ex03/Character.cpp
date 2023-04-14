@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:31:31 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/10 03:06:36 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/14 03:01:19 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 Character::Character() 
 {
+    for(int i = 0; i < 4; i++)
+        slots[i] = NULL;
     index = 0;
+    std::cout << "Character is created" << std::endl;
 }
 
 Character::Character(std::string n)
@@ -23,6 +26,7 @@ Character::Character(std::string n)
         slots[i] = NULL;
     index = 0;
     name = n;
+     std::cout << "Character is created" << std::endl;
 }
     
 Character::Character(Character &c)
@@ -36,7 +40,7 @@ Character::Character(Character &c)
         if(slots[x])
             slots[x] = c.slots[x]->clone();
     }
-       
+     std::cout << "Character is copied " <<  std::endl;   
 }
 
 Character& Character::operator=(Character &c)
@@ -44,7 +48,7 @@ Character& Character::operator=(Character &c)
     if(this != &c)
     {
         int x(-1);
-    
+        std::cout  << "debuging ... " << c.index << std::endl;   
         name = c.name;
         index = c.index;
         while(++x < c.index)
@@ -52,9 +56,11 @@ Character& Character::operator=(Character &c)
             if(slots[x])
                 delete slots[x];
             slots[x] = c.slots[x]->clone();
-                
+            
         }
+        
     }
+     std::cout << "Character gets assigned " << std::endl;
     return (*this);
 }
 
@@ -66,7 +72,10 @@ std::string const & Character::getName() const
 void Character::equip(AMateria* m)
 {
     if(m)
+        std::cout << "another cheking for equip with name of " << name << " " << index << std::endl;
+    if(m && index < 4)
     {
+       
          slots[index] = m;
         index++;
     }
@@ -95,6 +104,7 @@ void Character::unequip(int idx)
 
 AMateria* Character::getCopy(int idx) const
 {
+    std::cout << index << std::endl;
     if(idx < index)
     {
         if(slots[idx])
@@ -113,5 +123,6 @@ void Character::use(int idx, ICharacter& target)
 Character::~Character()
 {
   for(int i = 0; i < 4 && slots[i];i++)
-        delete slots[i];  
+        delete slots[i];
+    std::cout << "Character gets destructed " << std::endl;
 }

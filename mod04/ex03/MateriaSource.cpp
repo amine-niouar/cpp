@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:58:47 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/10 02:57:46 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/13 05:17:39 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ MateriaSource::MateriaSource()
     index = 0;
      for(int i = 0; i < 4; i++)
         slots[i] = NULL;
-   
+    std::cout << "MateriaSource is created" << std::endl;
 }
 
 
@@ -31,7 +31,7 @@ MateriaSource::MateriaSource(MateriaSource &m)
     index = m.index;
     while(++x < m.index)
             slots[x] = m.slots[x]->clone();
-       
+    std::cout << "MateriaSource is copied" << std::endl;
 }
 
 MateriaSource& MateriaSource::operator=(MateriaSource &m)
@@ -48,6 +48,7 @@ MateriaSource& MateriaSource::operator=(MateriaSource &m)
             slots[x] = m.slots[x]->clone();
         }
     }
+     std::cout << "MateriaSource gets assigned " << std::endl;
     return (*this);
 }
 
@@ -55,7 +56,7 @@ MateriaSource& MateriaSource::operator=(MateriaSource &m)
 
 void MateriaSource::learnMateria(AMateria* am)
 {
-    if(index < 4)
+    if(am && index < 4)
     {
         slots[index] = am;
         index++;
@@ -78,5 +79,6 @@ AMateria* MateriaSource::createMateria(std::string const& r)
 MateriaSource::~MateriaSource()
 {
      for(int i = 0; i < 4 && slots[i];i++)
-        delete slots[i];  
+        delete slots[i];
+      std::cout << "MateriaSource gets destructed " << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:17:11 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/10 03:01:58 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/12 00:11:59 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 Cure::Cure() : AMateria("cure")
 {
-
+    std::cout << "Cure is created" << std::endl;
 }
 
 Cure::Cure(Cure &i) : AMateria(i.type)
 {
-
+    std::cout << "Cure is copied " <<  std::endl;
 }
 
 
@@ -28,6 +28,7 @@ Cure& Cure::operator=(Cure &i)
 {
     if(this != &i)
         type = i.type;
+    std::cout << "Cure gets assigned " << std::endl;
     return (*this);
 }
 
@@ -47,5 +48,5 @@ void Cure::use(ICharacter &target)
 
 Cure::~Cure()
 {
-    
+     std::cout << "Cure gets destructed " << std::endl;
 }

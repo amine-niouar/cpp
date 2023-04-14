@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:21:39 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/10 03:01:27 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/12 00:13:05 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 Ice::Ice() : AMateria("ice")
 {
-    
+    std::cout << "Ice is created" << std::endl;
 }
 
 Ice::Ice(Ice &i) 
 {
     type = i.type;
+    std::cout << "Ice is copied " <<  std::endl;
 }
 
 
@@ -27,6 +28,7 @@ Ice& Ice::operator=(Ice &i)
 {
     if(this != &i)
         type = i.type;
+     std::cout << "Ice gets assigned " << std::endl;
     return (*this);
 }
 
@@ -47,5 +49,5 @@ void Ice::use(ICharacter &target)
 
 Ice::~Ice()
 {
-    
+    std::cout << "Ice gets destructed " << std::endl;
 }

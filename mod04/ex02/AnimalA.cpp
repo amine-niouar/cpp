@@ -20,12 +20,14 @@ AnimalA::AnimalA()
 AnimalA::AnimalA(AnimalA &a)
 {
     type = a.type;
+    std::cout << "AnimalA is copied " <<  std::endl;
 }
 
 AnimalA& AnimalA::operator=(AnimalA &a)
 {
     if(this != &a)
         type = a.type;
+    std::cout << "AnimalA gets assigned " << std::endl;
     return *this;
 }
 

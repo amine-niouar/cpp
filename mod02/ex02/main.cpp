@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 03:52:39 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/06 03:14:28 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/13 01:06:29 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main( void )
 {
     Fixed a;
 
-    Fixed const b( Fixed( 42.42f ) * Fixed( 1234.4321f ) );
+    Fixed const b( Fixed( 42.42f ) / Fixed( 0 ) );
 
     // std::cout << a << std::endl;
     // std::cout << b << std::endl;

@@ -6,15 +6,15 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/04/13 01:32:59 by aniouar          ###   ########.fr        #
+#    Updated: 2023/04/18 02:59:45 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp  WrongAnimal.cpp WrongCat.cpp
-NAME =  Animal
-HEADER = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp 
+SRCS = main.cpp Bureaucrat.cpp 
+NAME =  Bureaucrat
+HEADER =  Bureaucrat.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++

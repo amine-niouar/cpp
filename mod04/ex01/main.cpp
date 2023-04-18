@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/14 01:32:40 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/15 00:05:35 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@
 //     delete i;
 // }
 
+
+void testing_deep_copy(Cat &c)
+{
+    Cat newc = c;
+}
+
     
 int main()
 {
@@ -63,6 +69,11 @@ int main()
     x = 4;
     while(++x < 10)
         nat_geo[x] = new Cat();
+    
+     std::cout << "------------------------------" << std::endl;
+    Cat l;
+    testing_deep_copy(l);
+     std::cout << "------------------------------" << std::endl;
     
 
     std::cout << "------------------------------" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:31:31 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/14 03:01:19 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/14 23:21:30 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ void Character::unequip(int idx)
 
 AMateria* Character::getCopy(int idx) const
 {
-    std::cout << index << std::endl;
     if(idx < index)
     {
         if(slots[idx])

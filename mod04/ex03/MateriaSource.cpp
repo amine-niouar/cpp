@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:58:47 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/13 05:17:39 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/14 23:54:12 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ AMateria* MateriaSource::createMateria(std::string const& r)
 
 MateriaSource::~MateriaSource()
 {
+     std::cout << "MateriaSource gets destructed " << std::endl;
      for(int i = 0; i < 4 && slots[i];i++)
         delete slots[i];
-      std::cout << "MateriaSource gets destructed " << std::endl;
+     
 }

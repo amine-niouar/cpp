@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:52:36 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/18 02:59:55 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/26 14:13:18 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,32 @@ class Bureaucrat
         const std::string name;
         int grade;
     public:
-        class GradeTooHighException
+        class GradeTooHighException :  public std::exception
         {
             public:
-                std::string name;
-                int grade;
-                GradeTooHighException(std::string n,int g) : name(n), grade(g) {};
+               
+                const char* what() const throw() 
+                { return "Bureaucrat  had the lower grade  no need to decrement";};
+                //~GradeTooHighException() {};
         };
-        class GradeTooLowException
+        class GradeTooLowException : public std::exception
         {
             public:
-                std::string name;
-                int grade;
-                GradeTooLowException(std::string n,int g) : name(n), grade(g) {};
+               
+                const char* what() const throw()
+                 { return "Bureaucrat had the ultimate grade  no need to increment";}; 
+               // ~GradeTooLowException() {};
         };
         Bureaucrat();
         Bureaucrat(std::string n,int g);
         Bureaucrat(Bureaucrat &b);
+        void get_status() const;
         Bureaucrat& operator=(Bureaucrat& b);
-        const std::string& getName();
-        const int& getGrade();
+        const std::string& getName() const;
+        const int& getGrade() const;
         void incrementGrade();
         void decrementGrade();
         ~Bureaucrat();        
 };
+
+std::ostream & operator<<(std::ostream & o,Bureaucrat const & b);

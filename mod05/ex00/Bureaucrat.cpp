@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:56:37 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/18 03:00:01 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/26 14:08:48 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
     return (*this);
 }
 
- const std::string& Bureaucrat::getName()
+ const std::string& Bureaucrat::getName() const
  {
     return (name);
  }
@@ -44,7 +44,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
 
     tmp = grade + 1;
     if(tmp > 150)
-        throw GradeTooLowException(name,grade);
+        throw GradeTooLowException();
     else
         grade++;
  }
@@ -55,12 +55,17 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
 
     tmp = grade - 1;
     if(tmp < 1)
-        throw GradeTooHighException(name,grade);
+        throw GradeTooHighException();
     else
         grade--;
  }
 
-  const int& Bureaucrat::getGrade()
+ void Bureaucrat::get_status() const
+ {
+    
+ }
+
+  const int& Bureaucrat::getGrade() const
   {
     return (grade);
   }
@@ -69,3 +74,11 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
   {
     
   }
+
+
+std::ostream & operator<<(std::ostream & o,Bureaucrat const & b)
+{
+    o  << b.getName() << " , bureaucrat grade " << b.getGrade() << std::endl;
+    
+    return o;
+}

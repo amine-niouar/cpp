@@ -13,6 +13,8 @@ int main(void)
          
          b1.decrementGrade();
          b.incrementGrade();
+
+         //std::cout << b.get
          
 
          std::cout << b1 << std::endl;
@@ -25,6 +27,8 @@ int main(void)
 
          
     }
+
+
 
  
 }

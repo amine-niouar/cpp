@@ -6,13 +6,13 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:56:37 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/26 16:42:19 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/27 17:28:03 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat():name(""),grade(150)
+Bureaucrat::Bureaucrat():name(""),grade(0)
 {
     
 }
@@ -21,7 +21,7 @@ Bureaucrat::Bureaucrat(std::string n,int g) : name(n),grade(g)
     
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &b) : name(b.name)
+Bureaucrat::Bureaucrat(Bureaucrat &b)
 {
     grade = b.grade;
 }
@@ -33,7 +33,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
     return (*this);
 }
 
-const std::string& Bureaucrat::getName() const
+ const std::string& Bureaucrat::getName() const
  {
     return (name);
  }
@@ -75,11 +75,25 @@ const std::string& Bureaucrat::getName() const
     
   }
 
+void Bureaucrat::signForm(Form& f)
+{
+    try
+    {
+        // better place to test beSigned
+        f.beSigned(*this);
+         std::cout << name << " signed " << f.getName() << std::endl;
+    }
+    catch(Form::GradeTooLowException &e)
+    {
+         std::cerr << name << " couldn't sign " << f.getName() << " " << e.what() << std::endl;
+    }
+    
+       
+}
+
 
 std::ostream & operator<<(std::ostream & o,Bureaucrat const & b)
 {
-    
- 
     o  << b.getName() << " , bureaucrat grade " << b.getGrade() << std::endl;
     
     return o;

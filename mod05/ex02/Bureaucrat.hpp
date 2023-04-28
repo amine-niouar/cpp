@@ -6,24 +6,30 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:52:36 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/26 16:42:23 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/27 17:48:59 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#pragma once
+#ifndef __BUREAUCRAT_H__
+#define __BUREAUCRAT_H__
 
+
+#include <iostream>
+#include "AForm.hpp"
+class AForm;
 
 class Bureaucrat
 {
-    private:
+    protected:
         const std::string name;
         int grade;
     public:
-        class GradeTooHighException :  public std::exception
+         class GradeTooHighException :  public std::exception
         {
             public:
                
-                const char* what() const throw() 
+                virtual const char* what() const throw() 
                 { return "Bureaucrat  had the lower grade  no need to decrement";};
                 //~GradeTooHighException() {};
         };
@@ -31,7 +37,7 @@ class Bureaucrat
         {
             public:
                
-                const char* what() const throw()
+                virtual const char* what() const throw()
                  { return "Bureaucrat had the ultimate grade  no need to increment";}; 
                // ~GradeTooLowException() {};
         };
@@ -39,6 +45,7 @@ class Bureaucrat
         Bureaucrat(std::string n,int g);
         Bureaucrat(Bureaucrat &b);
         void get_status() const;
+        void signForm(AForm &f);
         Bureaucrat& operator=(Bureaucrat& b);
         const std::string& getName() const;
         const int& getGrade() const;
@@ -48,3 +55,5 @@ class Bureaucrat
 };
 
 std::ostream & operator<<(std::ostream & o,Bureaucrat const & b);
+
+#endif

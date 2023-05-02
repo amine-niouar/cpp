@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,7 +7,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:56:37 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 21:10:09 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/29 15:27:21 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +67,10 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
         grade--;
  }
 
+ void Bureaucrat::get_status() const
+ {
+    
+ }
 
   const int& Bureaucrat::getGrade() const
   {
@@ -74,22 +79,30 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
 
   Bureaucrat::~Bureaucrat()
   {
-     std::cout << "Bureaucrat " << name << " is destructed " << std::endl;
+      std::cout << "Bureaucrat " << name << " is destructed " << std::endl;
   }
 
-void Bureaucrat::signForm(Form& f)
+void Bureaucrat::signForm(AForm& f) 
 {
     try
     {
+        // better place to test beSigned
         f.beSigned(*this);
-         std::cout << name << " signed " << f.getName() << std::endl;
+        std::cout << name << " signed " << f.getName() << std::endl;
     }
     catch(std::exception &e)
     {
          std::cerr << name << " couldn't sign " << f.getName() << " " << e.what() << std::endl;
     }
     
-       
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+   
+        form.execute(*this);
+    
+    
 }
 
 

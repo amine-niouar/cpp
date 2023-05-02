@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:56:37 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 21:10:09 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/29 09:10:22 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,11 @@
 
 Bureaucrat::Bureaucrat():name(""),grade(0)
 {
-     std::cout << "Bureaucrat " << name << " with grade " << grade << " is created " << std::endl;
+    
 }
-Bureaucrat::Bureaucrat(std::string n,int g) : name(n)
+Bureaucrat::Bureaucrat(std::string n,int g) : name(n),grade(g)
 {
-    if(g > 150)
-        throw GradeTooLowException();
-    else if(g < 1)
-        throw GradeTooHighException();
-    else
-        grade =  g;
-    std::cout << "Bureaucrat " << name << " with grade " << grade << " is created " << std::endl;
+    
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &b)
@@ -66,6 +60,10 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
         grade--;
  }
 
+ void Bureaucrat::get_status() const
+ {
+    
+ }
 
   const int& Bureaucrat::getGrade() const
   {
@@ -74,22 +72,36 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
 
   Bureaucrat::~Bureaucrat()
   {
-     std::cout << "Bureaucrat " << name << " is destructed " << std::endl;
+    
   }
 
-void Bureaucrat::signForm(Form& f)
+void Bureaucrat::signForm(AForm& f)
 {
-    try
-    {
-        f.beSigned(*this);
-         std::cout << name << " signed " << f.getName() << std::endl;
-    }
-    catch(std::exception &e)
-    {
-         std::cerr << name << " couldn't sign " << f.getName() << " " << e.what() << std::endl;
-    }
+    // try
+    // {
+    //     // better place to test beSigned
+    //     f.beSigned(*this);
+    //     std::cout << name << " signed " << f.getName() << std::endl;
+    // }
+    // catch(std::exception &e)
+    // {
+    //      std::cerr << name << " couldn't sign " << f.getName() << " " << e.what() << std::endl;
+    // }
     
-       
+    (void)f;   
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+    // try
+    // {
+    //     form.execute();
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
+    (void)form;
 }
 
 

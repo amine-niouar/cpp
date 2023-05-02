@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:55:07 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/27 17:20:10 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/02 18:57:25 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 
 Form::Form() : signedStatus(false), gradeS(150) , gradeE(150)
 {
-    
+     std::cout << "Form " << name << " with grade sign " << gradeS 
+     << " and grade execute " << gradeE 
+     << " is created " << std::endl;
 }
 
-// add a paramerteriz constructor for custome test
 
-Form::Form(int gS,int gE) : signedStatus(false), gradeS(gS) , gradeE(gE)
+// throw exception missing
+Form::Form(std::string n,int gS,int gE) : name(n) , signedStatus(false), gradeS(gS) , gradeE(gE)
 {
     
+
+    std::cout << "Form " << name << " with grade sign " << gradeS 
+     << " and grade execute " << gradeE 
+     << " is created " << std::endl;
 }
 
 
@@ -63,8 +69,6 @@ void Form::beSigned(Bureaucrat &b)
     
 
     grade_b = b.getGrade();
-    // Bureaucrat::name = b.getName();
-    // grade = grade_b;
     if(grade_b > gradeS || grade_b > gradeE)
         throw GradeTooLowException();
     else
@@ -75,14 +79,19 @@ void Form::beSigned(Bureaucrat &b)
 
 Form::~Form()
 {
-    
+     std::cout << "Form " << name << " is destructed " << std::endl;
 }
 
 std::ostream & operator<<(std::ostream & o,Form const & f)
 {
     o  << f.getName() << " , form grade for signing  " << f.getGradeS() 
     << " , grade for executing " << f.getGradeE() 
-    << " , status signing :  " << f.getSignedStatus() <<  std::endl;
+    << " , status signing :  ";
+    
+    if(f.getSignedStatus() == true)
+        o << "true";
+    else
+        o << "false";
     
     return o;
 }

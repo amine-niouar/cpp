@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:55:07 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 15:19:00 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/28 15:40:26 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ AForm::AForm() : signedStatus(false), gradeS(150) , gradeE(150)
     
 }
 
+// add a paramerteriz constructor for custome test
 
-AForm::AForm(std::string n,int gS,int gE) : name(n), signedStatus(false), gradeS(gS) , gradeE(gE)
+AForm::AForm(int gS,int gE) : signedStatus(false), gradeS(gS) , gradeE(gE)
 {
     
 }
@@ -62,6 +63,8 @@ void AForm::beSigned(Bureaucrat  &b)
     
 
     grade_b = b.getGrade();
+    // Bureaucrat::name = b.getName();
+    // grade = grade_b;
     if(grade_b > gradeS || grade_b > gradeE)
         throw GradeTooLowException();
     else
@@ -75,6 +78,8 @@ void AForm::can_execute(Bureaucrat const  &b) const
     
 
     grade_b = b.getGrade();
+    // Bureaucrat::name = b.getName();
+    // grade = grade_b;
     if(grade_b > gradeS || grade_b > gradeE)
         throw GradeTooLowException();
 }

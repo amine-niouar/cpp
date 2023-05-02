@@ -6,17 +6,17 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/04/28 15:17:37 by aniouar          ###   ########.fr        #
+#    Updated: 2023/04/29 14:16:49 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
-		 PresidentialPardonForm.cpp
-NAME =  Form 
+		 PresidentialPardonForm.cpp Intern.cpp
+NAME =  Intern 
 HEADER =  Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp \
-		PresidentialPardonForm.hpp
+		PresidentialPardonForm.hpp Intern.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++

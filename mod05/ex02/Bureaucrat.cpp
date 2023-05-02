@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,7 +7,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:56:37 by aniouar           #+#    #+#             */
-/*   Updated: 2023/04/27 17:51:25 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/04/29 15:27:21 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +17,14 @@ Bureaucrat::Bureaucrat():name(""),grade(0)
 {
     
 }
-Bureaucrat::Bureaucrat(std::string n,int g) : name(n),grade(g)
+Bureaucrat::Bureaucrat(std::string n,int g) : name(n)
 {
-    
+    if(g > 150)
+        throw GradeTooLowException();
+    else if(g < 1)
+        throw GradeTooHighException();
+    else
+        grade =  g;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &b)
@@ -75,20 +81,32 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
     
   }
 
-void Bureaucrat::signForm(AForm& f)
+void Bureaucrat::signForm(AForm& f) 
 {
-    // try
-    // {
-    //     // better place to test beSigned
-    //     f.beSigned(*this);
-    //     std::cout << name << " signed " << f.getName() << std::endl;
-    // }
-    // catch(std::exception &e)
-    // {
-    //      std::cerr << name << " couldn't sign " << f.getName() << " " << e.what() << std::endl;
-    // }
+    try
+    {
+        f.beSigned(*this);
+        std::cout << name << " signed " << f.getName() << std::endl;
+    }
+    catch(std::exception &e)
+    {
+         std::cerr << name << " couldn't sign " << f.getName() << " " << e.what() << std::endl;
+    }
     
-    (void)f;   
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+    // checking by if
+
+    if(form.getSignedStatus() == true &&  grade < form.getGradeE())
+    {
+        form.execute(*this);
+        std::cout << name << " execute " << form.getName() << std::endl;
+    }
+    else
+        std::cout << name << " cant execute " << form.getName() << std::endl;
+
 }
 
 

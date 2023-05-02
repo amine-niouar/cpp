@@ -9,12 +9,12 @@ int main(void)
     try
     {
           Bureaucrat b("user1",1);
-         Bureaucrat b1("user2",150);
+         Bureaucrat b1("user2",130);
          
          b1.decrementGrade();
          b.incrementGrade();
 
-         //std::cout << b.get
+         
          
 
          std::cout << b1 << std::endl;
@@ -22,10 +22,7 @@ int main(void)
     }
     catch(std::exception & e)
     {
-        
-        std::cout << e.what();
-
-         
+        std::cerr << e.what() << std::endl;    
     }
 
 

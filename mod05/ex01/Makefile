@@ -6,7 +6,7 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/04/26 16:00:21 by aniouar          ###   ########.fr        #
+#    Updated: 2023/05/03 18:38:26 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,15 @@
 SRCS = main.cpp Bureaucrat.cpp Form.cpp
 NAME =  Form 
 HEADER =  Bureaucrat.hpp Form.hpp
-OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 
 all : $(NAME)
-$(NAME): $(OBJS)
-	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(SRCS)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(SRCS)
 $(OBJS) : $(HEADER)
 clean :
-	rm -rf $(OBJS)
+	rm -rf $(SRCS)
 fclean : clean
-	rm -rf $(NAME)
 re : fclean all
 .PHONY: clean fclean re all

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:55:07 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/03 18:18:43 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 18:52:39 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,27 @@
 
 AForm::AForm() : name(""),signedStatus(false), gradeS(150) , gradeE(150)
 {
-    
+     std::cout << "AForm " << name << " with grade sign " << gradeS 
+     << " and grade execute " << gradeE 
+     << " is created " << std::endl;
 }
 
 
 AForm::AForm(std::string n,int gS,int gE) : name(n), signedStatus(false), gradeS(gS) , gradeE(gE)
 {
-    
+    if(gradeS > 150)
+        throw GradeTooLowException();
+    else if(gradeS < 1)
+        throw GradeTooHighException();
+
+    if(gradeE > 150)
+        throw GradeTooLowException();
+    else if(gradeE < 1)
+        throw GradeTooHighException();
+
+     std::cout << "AForm " << name << " with grade sign " << gradeS 
+     << " and grade execute " << gradeE 
+     << " is created " << std::endl;
 }
 
 
@@ -68,21 +82,10 @@ void AForm::beSigned(Bureaucrat  &b)
         signedStatus = true;        
 }
 
-void AForm::can_execute(Bureaucrat const  &b) const
-{
-     int grade_b;
-
-    
-
-    grade_b = b.getGrade();
-    if(grade_b > gradeS || grade_b > gradeE)
-        throw GradeTooLowException();
-}
-
 
 AForm::~AForm()
 {
-    
+    std::cout << "AForm " << name << " is destructed " << std::endl;
 }
 
 std::ostream & operator<<(std::ostream & o,AForm const & f)

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:52:36 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 18:47:41 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 18:09:08 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ class Bureaucrat
             public:
                
                  const char* what() const throw() 
-                 { return "Bureaucrat out of the high grade cant increment/create";};
+                 { return "Bureaucrat out of the high grade cant create/increment";};
         };
         class GradeTooLowException : public std::exception
         {
             public:
                
                  const char* what() const throw()
-                 { return "Bureaucrat out of the low grade cant  decrement/create";}; 
+                 { return "Bureaucrat out of the low grade cant  create/decrement";}; 
         };
         Bureaucrat();
         Bureaucrat(std::string n,int g);

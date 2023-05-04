@@ -6,7 +6,7 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/05/03 18:38:26 by aniouar          ###   ########.fr        #
+#    Updated: 2023/05/03 18:42:55 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ $(NAME): $(SRCS)
 	$(CC) $(CPPFLAGS) -o $(NAME) $(SRCS)
 $(OBJS) : $(HEADER)
 clean :
-	rm -rf $(SRCS)
+	rm -rf $(NAME)
 fclean : clean
 re : fclean all
 .PHONY: clean fclean re all

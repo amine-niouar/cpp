@@ -6,7 +6,7 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/05/03 18:36:49 by aniouar          ###   ########.fr        #
+#    Updated: 2023/05/04 21:14:38 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,13 @@
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
 		 PresidentialPardonForm.cpp
 NAME =  Form 
-HEADER =  Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp \
-		PresidentialPardonForm.hpp
 
 
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 
 all : $(NAME)
-$(NAME): $(OBJS)
+$(NAME): $(SRCS)
 	$(CC) $(CPPFLAGS) -o $(NAME) $(SRCS)
-$(OBJS) : $(HEADER)
 clean :
 	rm -rf $(NAME)
 fclean : clean

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:39:33 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 15:18:21 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/02 23:36:28 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,17 @@ class AForm
         {
             public:
                 const char* what() const throw(){return "form will not signed/execute with this low grade";};
+        };
+
+        class FormNotSignedExecption : public std::exception
+        {
+            public:
+                const char* what() const throw(){return "Form isnt signed so no execute";};
+        };
+        class CantExecuteExecption : public std::exception
+        {
+            public:
+                const char* what() const throw(){return "Bureaucrat cant execute the following action ";};
         };
         AForm();
         AForm(AForm &f);

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 09:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 16:31:33 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 16:06:27 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,13 @@ AForm* Intern::create_pf(std::string t)
 int Intern::findForm(std::string& name)
 {
     int i(-1);
-    std::string test;
     
     while(++i < 3)
     {
         if(name == names[i])
             return (i);
     }
-    test = "the name listed not found";
-    throw (test);
+    throw FormNotFoundException();
     return (-1);
 }
 
@@ -64,12 +62,15 @@ AForm * Intern::makeForm(std::string name,std::string target)
     try
     {
        int index = findForm(name);
-       AForm* af = (this->*createForms[index])(target);
-       return (af);
+       if(index >= 0)
+       {
+            AForm* af = (this->*createForms[index])(target);
+            return (af);  
+       }
     }
-    catch(std::string& s)
+    catch(std::exception& e)
     {
-        std::cerr << s << '\n';
+        std::cerr << e.what() << '\n';
     }
     return (0);
 }

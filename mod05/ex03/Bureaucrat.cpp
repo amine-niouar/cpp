@@ -15,7 +15,7 @@
 
 Bureaucrat::Bureaucrat():name(""),grade(0)
 {
-     std::cout << "Bureaucrat " << name << " with grade " << grade << " is created " << std::endl;
+    
 }
 Bureaucrat::Bureaucrat(std::string n,int g) : name(n)
 {
@@ -25,7 +25,6 @@ Bureaucrat::Bureaucrat(std::string n,int g) : name(n)
         throw GradeTooHighException();
     else
         grade =  g;
-    std::cout << "Bureaucrat " << name << " with grade " << grade << " is created " << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &b)
@@ -79,14 +78,13 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& b)
 
   Bureaucrat::~Bureaucrat()
   {
-      std::cout << "Bureaucrat " << name << " is destructed " << std::endl;
+    
   }
 
 void Bureaucrat::signForm(AForm& f) 
 {
     try
     {
-        // better place to test beSigned
         f.beSigned(*this);
         std::cout << name << " signed " << f.getName() << std::endl;
     }
@@ -99,10 +97,16 @@ void Bureaucrat::signForm(AForm& f)
 
 void Bureaucrat::executeForm(AForm const & form)
 {
-   
+    // checking by if
+
+    if(form.getSignedStatus() == true &&  grade < form.getGradeE())
+    {
         form.execute(*this);
-    
-    
+        std::cout << name << " execute " << form.getName() << std::endl;
+    }
+    else
+        std::cout << name << " cant execute " << form.getName() << std::endl;
+
 }
 
 

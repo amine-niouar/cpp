@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:21:52 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 23:36:57 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 22:48:14 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ RobotomyRequestForm::RobotomyRequestForm(std::string t) : AForm("RobotomyRequest
     std::cout << target  << " is created " << std::endl;
 }
 
+RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
+{
+    if(this != &rrf)
+    {
+        target = rrf.target;
+        AForm::operator=(rrf);
+    }
+    return (*this);
+}
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {

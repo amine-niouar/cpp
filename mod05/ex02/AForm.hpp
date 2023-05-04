@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:39:33 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 23:36:28 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 18:52:34 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ class AForm
         int getGradeE() const;
         AForm& operator=(AForm const &f);
         virtual void execute(Bureaucrat const & executor) const = 0;
-        void can_execute(Bureaucrat const  &b) const;
         virtual ~AForm();
 };
 

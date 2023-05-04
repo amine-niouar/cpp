@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:52:36 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 15:20:28 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 16:03:10 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Bureaucrat
         const std::string name;
         int grade;
     public:
-         class GradeTooHighException :  public std::exception
+        class GradeTooHighException :  public std::exception
         {
             public:
                

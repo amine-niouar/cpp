@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:09:14 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 22:38:42 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 22:46:21 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string t) : AForm("ShrubberyCr
     target = t;
     std::cout << target  << " is created " << std::endl;
 }
+
+ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm& scf)
+{
+    if(this != &scf)
+    {
+        target = scf.target;
+        AForm::operator=(scf);
+    }
+    return (*this);
+}
+
 
 void ShrubberyCreationForm::writing_to_target(void) const
 {
@@ -47,12 +58,23 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     try
     {
-        std::cout << "writing a wonderful ascii tree to " << target  << "_shrubbery" << std::endl; 
-         writing_to_target();      
+        if(getSignedStatus() == true)
+        {
+            if(executor.getGrade() < getGradeE())
+            {
+                std::cout << "writing a wonderful ascii tree to " << target  << "_shrubbery" << std::endl; 
+                writing_to_target();      
+            }
+            else
+                throw CantExecuteExecption();
+        }
+        else
+            throw FormNotSignedExecption();
+          
     }
     catch(std::exception &e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << executor.getName()  << " cant execute the following action " << e.what() << std::endl;
     }
 }
 

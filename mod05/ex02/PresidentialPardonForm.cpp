@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:18:42 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 23:53:58 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 22:42:12 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@ PresidentialPardonForm::PresidentialPardonForm(std::string t) : AForm("President
     target = t;
     std::cout << target  << " is created " << std::endl;
 }
+
+PresidentialPardonForm&  PresidentialPardonForm::operator=(PresidentialPardonForm& ppf)
+{
+    if(this != &ppf)
+    {
+        target = ppf.target;
+        AForm::operator=(ppf);
+    }
+    return (*this);
+}
+
+
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {

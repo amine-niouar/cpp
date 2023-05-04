@@ -6,53 +6,234 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:05:00 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 23:55:23 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/04 22:29:14 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
 #include <iostream>
-#include <random>
+//#include <random>
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+#define GREEN "\033[1;32m"
+#define RESET "\033[0m"
+
+void line()
+{
+     std::cout << "----------------" << std::endl;
+}
+
+void test1()
+{
+    std::cout <<GREEN<< "Test1 ..." << RESET <<  std::endl;
+    try
+    {
+       line();
+        Bureaucrat walker("walker",1);
+       
+        AForm* rrf;
+
+        
+        rrf = new ShrubberyCreationForm("Tree");
+        if(rrf)
+        {
+            line();
+             walker.signForm(*rrf);
+            rrf->execute(walker);
+            // b.executeForm(*rrf);
+
+            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+        }
+        line();
+        delete rrf;
+            
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
+void test2()
+{
+   line();
+    std::cout <<GREEN<< "Test2 ..." << RESET <<  std::endl;
+    try
+    {
+       line();
+        Bureaucrat silva("silva",1);
+       
+        AForm* rrf;
+
+        
+        rrf = new RobotomyRequestForm("Roboto");
+        if(rrf)
+        {
+            line();
+             silva.signForm(*rrf);
+            rrf->execute(silva);
+            // b.executeForm(*rrf);
+
+            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+        }
+        line();
+        delete rrf;
+            
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
+void test3()
+{
+   line();
+    std::cout <<GREEN<< "Test3 ..." << RESET <<  std::endl;
+    try
+    {
+       line();
+        Bureaucrat walker("walker",1);
+       
+        AForm* rrf;
+
+        
+        rrf = new PresidentialPardonForm("Pardon");
+        if(rrf)
+        {
+            line();
+             walker.signForm(*rrf);
+            rrf->execute(walker);
+            // b.executeForm(*rrf);
+
+            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+        }
+        line();
+        delete rrf;
+            
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
+void test4()
+{
+   line();
+    std::cout <<GREEN<< "Test4 ..." << RESET <<  std::endl;
+    try
+    {
+       line();
+        Bureaucrat walker("walker",1);
+       
+        AForm* rrf;
+
+        
+        rrf = new PresidentialPardonForm("Pardon");
+        if(rrf)
+        {
+            line();
+            walker.signForm(*rrf);
+            walker.executeForm(*rrf);
+            //rrf->execute(walker);
+            // b.executeForm(*rrf);
+
+            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+        }
+        line();
+        delete rrf;
+            
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+     try
+    {
+       line();
+        Bureaucrat silva("silva",150);
+       
+        AForm* rrf;
+
+        
+        rrf = new PresidentialPardonForm("Pardon");
+        if(rrf)
+        {
+            line();
+            //walker.signForm(*rrf);
+            silva.executeForm(*rrf);
+            //rrf->execute(walker);
+            // b.executeForm(*rrf);
+
+            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+        }
+        line();
+        delete rrf;
+            
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
+
 int main(void)
 {
    
-   AForm *af;
-   Bureaucrat b("user1",1);
-   
-   PresidentialPardonForm ppf("PresidentialPardon");
-   RobotomyRequestForm rrf("RobotomyRequest");
-   ShrubberyCreationForm scf("ShrubberyCreation");
-   
-   af = &ppf;
+   // test1 ShrubberyCreation
+    test1();
 
-    b.signForm(*af);
-   b.executeForm(*af);
+    // test2 RobotomyRequest
+    test2();
 
-   std::cout << "----------------" << std::endl;
+    // test3 PresidentialPardon
+    test3();
 
-   af = &rrf;
-   b.signForm(*af);
-   b.executeForm(*af);
-   std::cout << "***********" << std::endl;
-   b.executeForm(*af);
-   std::cout << "***********" << std::endl;
-   b.executeForm(*af);
-   std::cout << "***********" << std::endl;
-   b.executeForm(*af);
+    // test4 ExecuteForm
+
+    test4();
+
     
 
-     std::cout << "----------------" << std::endl;
-   af = &scf;
-  
-   b.signForm(*af);
-   b.executeForm(*af);
+   
+  //  AForm *af;
+  //  Bureaucrat b("user1",1);
+   
+  //  PresidentialPardonForm ppf("PresidentialPardon");
+  //  RobotomyRequestForm rrf("RobotomyRequest");
+  //  ShrubberyCreationForm scf("ShrubberyCreation");
+   
+  //  af = &ppf;
 
-    std::cout << "----------------" << std::endl;
+  //   b.signForm(*af);
+  //  b.executeForm(*af);
+
+  //  std::cout << "----------------" << std::endl;
+
+  //  af = &rrf;
+  //  b.signForm(*af);
+  //  b.executeForm(*af);
+  //  std::cout << "***********" << std::endl;
+  //  b.executeForm(*af);
+  //  std::cout << "***********" << std::endl;
+  //  b.executeForm(*af);
+  //  std::cout << "***********" << std::endl;
+  //  b.executeForm(*af);
+    
+
+  //    std::cout << "----------------" << std::endl;
+  //  af = &scf;
+  
+  //  b.signForm(*af);
+  //  b.executeForm(*af);
+
+  //   std::cout << "----------------" << std::endl;
 
   
 

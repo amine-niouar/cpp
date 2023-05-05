@@ -6,11 +6,12 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:18:42 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 22:46:57 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/05 21:21:00 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
 
 PresidentialPardonForm::PresidentialPardonForm(std::string t) : AForm("PresidentialPardon",25,5)
 {

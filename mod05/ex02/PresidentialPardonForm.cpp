@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:18:42 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 22:42:12 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/08 19:17:22 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 PresidentialPardonForm::PresidentialPardonForm(std::string t) : AForm("PresidentialPardon",25,5)
 {
     target = t;
+    std::cout << target  << " is created " << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardon",25,5)
+{
+    target = "default";
     std::cout << target  << " is created " << std::endl;
 }
 

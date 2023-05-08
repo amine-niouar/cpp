@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:21:52 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 22:48:14 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:37:28 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,15 @@ RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
-{
-    // use rand as begin value
-    static int roboto;
-    
+{    
+    srand(time(NULL));
     try
     {
         if(getSignedStatus() == true)
         {
             if(executor.getGrade() < getGradeE())
             {
-                 if(roboto % 2 == 0)
+                 if(rand() % 2 == 0)
                      throw RobotoException();
                 std::cout << target  << " has been robotomized " << std::endl;  
             }
@@ -54,7 +52,6 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     {
         std::cerr << e.what() << std::endl;
     }
-    roboto++;
 }
 
 

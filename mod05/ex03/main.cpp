@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:05:00 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 22:49:19 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:25:42 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void test2()
             line();
             b.signForm(*rrf);
             b.executeForm(*rrf);
+
+            
 
             std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;
         }
@@ -154,17 +156,19 @@ void test4()
 int main(void)
 {
   
-    // test1 ShrubberyCreation
-    test1();
+    // // test1 ShrubberyCreation
+    // test1();
 
-    // test1 RobotoMyRequest
-    test2();
+    // // test1 RobotoMyRequest
+     test2();
 
-    // test3 PresidentialPardon
-    test3();
+    // // test3 PresidentialPardon
+    // test3();
 
-    // test4 form not exist
-    test4();
+    // // test4 form not exist
+    // test4();
+  
+
   
 
     

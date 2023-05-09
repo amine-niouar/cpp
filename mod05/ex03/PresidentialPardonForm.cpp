@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:18:42 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/05 21:21:00 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/09 13:47:34 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardon",25
     std::cout << target  << " is created " << std::endl;
 }
 
-PresidentialPardonForm&  PresidentialPardonForm(PresidentialPardonForm &ppf) : AForm(pff.getName(),pff.getGradeS(),pff.getGradeE())
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &ppf) : AForm(ppf)
 {
     target = ppf.target;
     std::cout << target  << " is copied " << std::endl;

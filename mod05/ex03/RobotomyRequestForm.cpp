@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:21:52 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/08 18:21:05 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/09 13:49:18 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,10 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm",72,45)
     std::cout << target  << " is created " << std::endl;
 }
 
-RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &rrf) : AForm(rrf)
 {
-    if(this != &rrf)
-    {
-        target = ppf.target;
-        AForm::operator=(rrf);
-    }
-     std::cout << target  << " is copied " << std::endl;
-    return (*this);
+    target = rrf.target;
+    std::cout << target  << " is copied " << std::endl;
 }
 
 

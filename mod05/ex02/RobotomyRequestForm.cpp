@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:21:52 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/08 18:37:28 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/09 13:48:30 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@ RobotomyRequestForm::RobotomyRequestForm(std::string t) : AForm("RobotomyRequest
     std::cout << target  << " is created " << std::endl;
 }
 
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm",72,45)
+{
+    target = "default";
+    std::cout << target  << " is created " << std::endl;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &rrf) : AForm(rrf)
+{
+    target = rrf.target;
+    std::cout << target  << " is copied " << std::endl;
+}
+
+
 RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
 {
     if(this != &rrf)
@@ -26,6 +39,7 @@ RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
         target = rrf.target;
         AForm::operator=(rrf);
     }
+    std::cout << target  << " is assigned " << std::endl;
     return (*this);
 }
 

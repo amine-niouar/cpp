@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:09:14 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 22:47:42 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/09 13:48:02 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string t) : AForm("ShrubberyCr
 {
     target = t;
     std::cout << target  << " is created " << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreation",25,5)
+{
+    target = "default";
+    std::cout << target  << " is created " << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &scf) : AForm(scf)
+{
+    target = scf.target;
+    std::cout << target  << " is copied " << std::endl;
 }
 
 ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm& scf)

@@ -14,10 +14,27 @@
 
 RobotomyRequestForm::RobotomyRequestForm(std::string t) : AForm("RobotomyRequest",72,45)
 {
-    
     target = t;
     std::cout << target  << " is created " << std::endl;
 }
+
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm",72,45)
+{
+    target = "default";
+    std::cout << target  << " is created " << std::endl;
+}
+
+RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
+{
+    if(this != &rrf)
+    {
+        target = ppf.target;
+        AForm::operator=(rrf);
+    }
+     std::cout << target  << " is copied " << std::endl;
+    return (*this);
+}
+
 
 RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
 {
@@ -26,6 +43,7 @@ RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
         target = rrf.target;
         AForm::operator=(rrf);
     }
+    std::cout << target  << " is assigned " << std::endl;
     return (*this);
 }
 

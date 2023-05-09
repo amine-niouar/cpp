@@ -20,6 +20,8 @@ class ShrubberyCreationForm : public AForm
         std::string target;
          
      public:
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(ShrubberyCreationForm &scf);
         ShrubberyCreationForm(std::string t);
         ShrubberyCreationForm&  operator=(ShrubberyCreationForm& scf);
         void writing_to_target(void) const;

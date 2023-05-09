@@ -18,6 +18,8 @@ class PresidentialPardonForm : public AForm
      private:
         std::string target;
      public:
+        PresidentialPardonForm();
+        PresidentialPardonForm(PresidentialPardonForm &ppf);
         PresidentialPardonForm(std::string t);
         PresidentialPardonForm&  operator=(PresidentialPardonForm& ppf);
         void execute(Bureaucrat const & executor) const ;

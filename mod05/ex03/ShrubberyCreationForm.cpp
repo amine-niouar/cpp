@@ -18,6 +18,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string t) : AForm("ShrubberyCr
     std::cout << target  << " is created " << std::endl;
 }
 
+ShrubberyCreationForm&  ShrubberyCreationForm(ShrubberyCreationForm &scf) : AForm(scf.getName(),scf.getGradeS(),scf.getGradeE())
+{
+    target = scf.target;
+    std::cout << target  << " is copied " << std::endl;
+}
+
 ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm& scf)
 {
     if(this != &scf)

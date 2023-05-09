@@ -24,6 +24,8 @@ class RobotomyRequestForm : public AForm
                 virtual const char* what() const throw() 
                 { return "the robotomy failed";};
         };
+        RobotomyRequestForm();
+        RobotomyRequestForm(RobotomyRequestForm &rrf);
         RobotomyRequestForm(std::string t);
         RobotomyRequestForm&  operator=(RobotomyRequestForm& rrf);
         void execute(Bureaucrat const & executor) const ;

@@ -6,14 +6,13 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:05:00 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/08 19:11:43 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 10:04:13 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
 #include <iostream>
-//#include <random>
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -42,10 +41,7 @@ void test1()
         {
             line();
              walker.signForm(*rrf);
-            rrf->execute(walker);
-            // b.executeForm(*rrf);
-
-            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+            rrf->execute(walker);  
         }
         line();
         delete rrf;
@@ -74,10 +70,7 @@ void test2()
         {
             line();
              silva.signForm(*rrf);
-            rrf->execute(silva);
-            // b.executeForm(*rrf);
-
-            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+            rrf->execute(silva);    
         }
         line();
         delete rrf;
@@ -106,10 +99,7 @@ void test3()
         {
             line();
              walker.signForm(*rrf);
-            rrf->execute(walker);
-            // b.executeForm(*rrf);
-
-            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+            rrf->execute(walker);   
         }
         line();
         delete rrf;
@@ -138,11 +128,7 @@ void test4()
         {
             line();
             walker.signForm(*rrf);
-            walker.executeForm(*rrf);
-            //rrf->execute(walker);
-            // b.executeForm(*rrf);
-
-            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
+            walker.executeForm(*rrf);    
         }
         line();
         delete rrf;
@@ -165,12 +151,7 @@ void test4()
         if(rrf)
         {
             line();
-            //walker.signForm(*rrf);
             silva.executeForm(*rrf);
-            //rrf->execute(walker);
-            // b.executeForm(*rrf);
-
-            // std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
         }
         line();
         delete rrf;
@@ -199,5 +180,5 @@ int main(void)
 
     test4();
 
-    while(1);
+
 }

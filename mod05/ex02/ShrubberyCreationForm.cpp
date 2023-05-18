@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:09:14 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/09 13:48:02 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 02:18:20 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string t) : AForm("ShrubberyCr
     std::cout << target  << " is created " << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreation",25,5)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreation",145,137)
 {
     target = "default";
     std::cout << target  << " is created " << std::endl;
@@ -46,7 +46,7 @@ void ShrubberyCreationForm::writing_to_target(void) const
     std::string filename;
     std::fstream writeMode;
 
-    writeMode.exceptions(std::fstream::failbit);
+    writeMode.exceptions(std::fstream::failbit | std::fstream::badbit);
     filename.append(target);
     filename.append("_shrubbery");
 
@@ -84,10 +84,14 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
             throw FormNotSignedExecption();
           
     }
+     catch (std::fstream::failure e) {
+        std::cerr <<  executor.getName()  << " cant execute the following action : Exception opening/reading/closing file" << std::endl;
+    }
     catch(std::exception &e)
     {
         std::cerr << executor.getName()  << " cant execute the following action " << e.what() << std::endl;
     }
+   
 }
 
 

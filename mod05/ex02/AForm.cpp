@@ -6,13 +6,13 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:55:07 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 18:52:39 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 09:55:01 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm() : name(""),signedStatus(false), gradeS(150) , gradeE(150)
+AForm::AForm() : name("default"),signedStatus(false), gradeS(150) , gradeE(150)
 {
      std::cout << "AForm " << name << " with grade sign " << gradeS 
      << " and grade execute " << gradeE 

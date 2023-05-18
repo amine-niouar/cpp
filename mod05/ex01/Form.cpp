@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:55:07 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 18:16:04 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 00:28:11 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Form::Form() : signedStatus(false), gradeS(150) , gradeE(150)
 }
 
 
-// throw exception missing
 Form::Form(std::string n,int gS,int gE) : name(n) , signedStatus(false), gradeS(gS) , gradeE(gE)
 {
     if(gradeS > 150)

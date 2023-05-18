@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:52:36 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 17:55:30 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 00:11:56 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Bureaucrat
         class GradeTooHighException :  public std::exception
         {
             public:
-               
                 const char* what() const throw() 
                 { return "Bureaucrat out of the high grade cant create/increment";};
         };

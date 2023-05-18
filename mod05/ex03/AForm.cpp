@@ -6,13 +6,13 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:55:07 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/03 18:18:43 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 09:55:19 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm() : name(""),signedStatus(false), gradeS(150) , gradeE(150)
+AForm::AForm() : name("default"),signedStatus(false), gradeS(150) , gradeE(150)
 {
     
 }

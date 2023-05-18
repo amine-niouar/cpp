@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 09:13:23 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/04 16:06:27 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 02:25:02 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ AForm * Intern::makeForm(std::string name,std::string target)
        if(index >= 0)
        {
             AForm* af = (this->*createForms[index])(target);
+            std::cout << "Intern creates " << name << std::endl;
             return (af);  
        }
     }

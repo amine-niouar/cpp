@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 09:56:37 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/02 21:10:09 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 09:57:17 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat():name(""),grade(0)
 {
-     std::cout << "Bureaucrat " << name << " with grade " << grade << " is created " << std::endl;
+    ç
 }
 Bureaucrat::Bureaucrat(std::string n,int g) : name(n)
 {

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:05:00 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/08 18:25:42 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 10:03:36 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #define GREEN "\033[1;32m"
 #define RESET "\033[0m"
 
-// constructors of concrete class 
-// missing testing of canonical form in all class
 
 void line()
 {
@@ -41,7 +39,7 @@ void test1()
             line();
             b.signForm(*rrf);
             b.executeForm(*rrf);
-
+            delete(rrf);
             std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;    
         }
 
@@ -74,9 +72,7 @@ void test2()
             line();
             b.signForm(*rrf);
             b.executeForm(*rrf);
-
-            
-
+            delete(rrf);
             std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;
         }
 
@@ -106,7 +102,7 @@ void test3()
             line();
             b.signForm(*rrf);
             b.executeForm(*rrf);
-
+             delete(rrf);
             std::cout << "checking if it got the same grade " << rrf->getGradeS() << std::endl;
         }
 
@@ -156,27 +152,24 @@ void test4()
 int main(void)
 {
   
-    // // test1 ShrubberyCreation
-    // test1();
+    // test1 ShrubberyCreation
+     test1();
 
-    // // test1 RobotoMyRequest
+    // // // // test1 RobotoMyRequest
      test2();
 
-    // // test3 PresidentialPardon
-    // test3();
+    // // // // test3 PresidentialPardon
+     test3();
 
-    // // test4 form not exist
-    // test4();
+    // // // // test4 form not exist
+     test4();
   
 
   
 
-    
+   
    
 
-
-
-//while (1);
 
 
    

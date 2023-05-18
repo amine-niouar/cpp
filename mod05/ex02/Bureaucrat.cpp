@@ -15,7 +15,7 @@
 
 Bureaucrat::Bureaucrat():name(""),grade(0)
 {
-    
+
 }
 Bureaucrat::Bureaucrat(std::string n,int g) : name(n)
 {
@@ -97,7 +97,6 @@ void Bureaucrat::signForm(AForm& f)
 
 void Bureaucrat::executeForm(AForm const & form)
 {
-    // checking by if
 
     if(form.getSignedStatus() == true &&  grade < form.getGradeE())
     {

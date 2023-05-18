@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:10:45 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/08 19:00:24 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/13 09:50:37 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,26 +161,5 @@ int main(void)
     test4();
 
 
-   
-    // try
-    // {
-    //     std::cout << "----------------" << std::endl;
-    //     Bureaucrat b("user1",130);
-    //     Bureaucrat b1("user2",130);
-    //     Form contract("Contract",131,129);
-    //     std::cout << "----------------" << std::endl;
-
-    //     //b.incrementGrade();
-    //     b.signForm(contract);
-         
-    //     std::cout << contract << std::endl;
-    //     std::cout << b1;
-    //     std::cout << b;
-    //      std::cout << "----------------" << std::endl;
-    // }
-    // catch(std::exception & e)
-    // {
-    //     std::cerr << e.what() << std::endl;    
-    // }
    
 }

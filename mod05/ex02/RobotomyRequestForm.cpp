@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:21:52 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/09 13:48:30 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/19 11:02:38 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ RobotomyRequestForm&  RobotomyRequestForm::operator=(RobotomyRequestForm& rrf)
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {    
-    srand(time(NULL));
+    
     try
     {
         if(getSignedStatus() == true)

@@ -6,13 +6,42 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:16:59 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/18 20:17:16 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/19 11:08:01 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#ifndef __BASE_H__
+#define __BASE_H__
+
 #include <iostream>
+
 
 class Base
 {
-    
-}
+    public:
+        virtual ~Base(){};
+        Base * generate(void);
+        void identify(Base* p);
+        void identify(Base& p);
+};
+
+class A : public Base
+{
+    public:
+        A() {std::cout << "A\n";}
+};
+
+class B : public Base
+{
+     public:
+        B() {std::cout << "B\n";}
+};
+
+class C : public Base
+{
+    public:
+        C() {std::cout << "C\n";}
+};
+
+#endif

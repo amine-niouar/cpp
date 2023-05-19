@@ -6,13 +6,13 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/05/18 20:16:22 by aniouar          ###   ########.fr        #
+#    Updated: 2023/05/19 11:05:59 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS  main.cpp
+SRCS =  main.cpp Base.cpp
 NAME =  Real 
 
 

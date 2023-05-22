@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:00:32 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/18 20:10:37 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/19 18:42:58 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ uintptr_t Serializer::serialize(Data* ptr)
 
 Data* Serializer::deserialize(uintptr_t raw)
 {
+    
     return (reinterpret_cast<Data*>(raw));
 }
 

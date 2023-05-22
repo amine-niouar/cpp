@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:16:59 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/19 11:08:01 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/20 16:54:40 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,16 @@ class Base
 
 class A : public Base
 {
-    public:
-        A() {std::cout << "A\n";}
+
 };
 
 class B : public Base
 {
-     public:
-        B() {std::cout << "B\n";}
+
 };
 
 class C : public Base
 {
-    public:
-        C() {std::cout << "C\n";}
 };
 
 #endif

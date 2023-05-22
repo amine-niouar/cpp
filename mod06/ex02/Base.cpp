@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:00:22 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/19 11:42:11 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/22 05:34:58 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
     int choice;
 
     choice = rand() % 3 + 1;
-    // 
     if(choice == 1)
         return (new A);
     else if(choice == 2)
@@ -57,13 +56,13 @@
   {
     try
     {
+        
          A a = dynamic_cast<A&>(p);
          std::cout << "A\n";
     }
     catch(std::exception &e)
     {
         (void)e;
-        //std::cout << e.what() << '\n';
     }
 
     try
@@ -74,7 +73,6 @@
     catch(std::exception &e)
     {
         (void)e;
-        //std::cout << e.what() << '\n';
     }
 
     try
@@ -85,6 +83,5 @@
     catch(std::exception &e)
     {
         (void)e;
-        //std::cout << e.what() << '\n';
     }
   }

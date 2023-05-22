@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:48:20 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/18 20:06:34 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/19 19:04:57 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 typedef struct s_data
 {
-    void *shitdata;
+    std::string str;
 } Data;
 
 class Serializer

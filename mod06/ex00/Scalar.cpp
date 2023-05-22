@@ -6,44 +6,29 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:53:16 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/18 19:15:24 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/22 04:51:24 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Scalar.hpp"
 
+
 Scalar::Scalar()
 {
-    f_science[0] = "-inff";
-    f_science[1] = "+inff";
-    f_science[2] = "nanf";
-    d_science[0] = "-inf";
-    d_science[1] = "+inf";
-    d_science[2] = "nan";
-    v_science[0] = -HUGE_VAL;
-    v_science[1] = HUGE_VAL;
-    v_science[2] =  nanf("");
-    vd_science[0] = -HUGE_VAL;
-    vd_science[1] = HUGE_VAL;
-    vd_science[2] =  nan("");
     fract_part = 0;
     integer_part = 0;
 }
 
-int Scalar::check_in(std::string & s,std::string science[])
+bool Scalar::check_in(double numeric)
 {
-    int i(-1);
-    
-
-    while(++i < 3)
-    {
-        if(s == science[i])
-            return (i);
-    }
-    return (-1);
+    if(numeric == -HUGE_VAL or numeric == HUGE_VAL)
+        return (true);
+    if(numeric == nanf("") or numeric == nan(""))
+        return (true);
+    return (false);
 }
 
-void Scalar::cs(double  num,int science)
+void Scalar::cs(double  num)
 {
 
     
@@ -51,7 +36,6 @@ void Scalar::cs(double  num,int science)
           float f = static_cast<float>(num);
           int i = static_cast<int>(num);
           char c = static_cast<char>(num);
-        
 
          if(dd >= 0 and dd <= 255)
         {
@@ -67,9 +51,12 @@ void Scalar::cs(double  num,int science)
         else
              std::cout << "int: impossible"   << '\n';
         
-        if(fract_part == 0 && science == 0)
+        if(fract_part == 0 && check_in(integer_part) == false)
         {
-             std::cout << "float: " << f << ".0f\n";
+            if(f != HUGE_VAL && f != -HUGE_VAL)
+                std::cout << "float: " << f << ".0f\n";
+            else
+                std::cout << "float: " << f << "f\n";
             std::cout << "double: " << dd <<  ".0\n";
         }
         else
@@ -82,7 +69,7 @@ void Scalar::cs(double  num,int science)
 
 void Scalar::impossible(char *rest,int & size,int & valid)
 {
-    if((strlen(rest) > 0 and strcmp(rest,"f") != 0) or (size == 0))
+    if((strlen(rest) > 0 and strcmp(rest,"f") != 0 and size > 1) or (size == 0))
     {
             std::cout << "char: impossible"   << '\n';
             std::cout << "int: impossible" << '\n';
@@ -96,11 +83,11 @@ void Scalar::checking_zero(int & size,std::string &str,double & numeric,int &val
 {
     if(valid)
         return;
-    
-    if((size == 1 and str[0] == '0') or numeric == 0)
+    (void)numeric;
+    if((size == 1 and str[0] == '0'))
     {
-         std::cout <<GREEN<< "int" << RESET <<  std::endl;
-        cs(0,0);
+         //std::cout <<GREEN<< "int" << RESET <<  std::endl;
+        cs(0);
         valid = 1;
     }         
            
@@ -110,16 +97,13 @@ void Scalar::checking_float(std::string &str,char *rest, int &valid,double &nume
 {
      if(valid)
         return;
-    int idxf;
+   (void)str;
 
-    idxf = check_in(str,f_science);
-    if(strcmp(rest,"f") == 0 or idxf >= 0)
+    //idxf = check_in(str,f_science);
+    if(strcmp(rest,"f") == 0)
     {
-          std::cout <<GREEN<< "float" << RESET <<  std::endl;
-            if(idxf >= 0)
-                cs(v_science[idxf],1);
-            else
-                cs(numeric,0);
+         // std::cout <<GREEN<< "float" << RESET <<  std::endl;
+                cs(numeric);
             
             valid = 1;
     }
@@ -129,16 +113,13 @@ void Scalar::checking_double(std::string &str, double &numeric,int &valid)
 {
     if(valid)
         return;
-    int idxd;
+    (void)str;
 
-    idxd = check_in(str,d_science);
-    if(fract_part != 0 or idxd >= 0)
+    if(fract_part != 0)
     {
-         std::cout <<GREEN<< "double" << RESET <<  std::endl;
-            if(idxd >= 0)
-                cs(vd_science[idxd],1);
-            else
-                cs(numeric,0);
+        // std::cout <<GREEN<< "double" << RESET <<  std::endl;
+
+                cs(numeric);
          valid = 1;
     }
 }
@@ -149,8 +130,8 @@ void Scalar::checking_integer(int &valid)
         return;
      if(fract_part == 0 && integer_part != 0)
         {
-            std::cout <<GREEN<< "int" << RESET <<  std::endl;
-            cs(integer_part,0);
+            //std::cout <<GREEN<< "int" << RESET <<  std::endl;
+            cs(integer_part);
             valid = 1;
         }
 }
@@ -159,11 +140,12 @@ void Scalar::checking_char(std::string &str, int &size, int &valid)
 {
     if(valid)
         return;
-    if(size == 1)
+    if(size == 1 && integer_part == 0 && fract_part == 0)
     {
-        std::cout <<GREEN<< "char" << RESET <<  std::endl;
-            char t = (char)str[0];
-          cs((int)t,0);
+      
+        //std::cout <<GREEN<< "char" << RESET <<  std::endl;
+        char t = (char)str[0];
+        cs((int)t);
         valid = 1;
     }
 }
@@ -179,14 +161,18 @@ void Scalar::convert(std::string &str)
     numeric = std::strtod(str.c_str(),&rest);
     fract_part = modf(numeric,&integer_part);
 
-   
     
     impossible(rest,size,valid);
     checking_zero(size,str,numeric,valid);
+    checking_char(str,size,valid);
+    
     checking_float(str,rest,valid,numeric);
     checking_double(str,numeric,valid);
+   
     checking_integer(valid);
-    checking_char(str,size,valid);
+    
+   
+   
 }
 
 

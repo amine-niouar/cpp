@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:16:59 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/20 16:54:40 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:42:43 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,5 @@ class Base
         void identify(Base& p);
 };
 
-class A : public Base
-{
-
-};
-
-class B : public Base
-{
-
-};
-
-class C : public Base
-{
-};
 
 #endif

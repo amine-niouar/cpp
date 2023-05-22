@@ -6,11 +6,14 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:00:22 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/22 05:34:58 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:41:44 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
  Base * Base::generate(void)
  {

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:53:16 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/22 04:51:24 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:19:06 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 Scalar::Scalar()
 {
-    fract_part = 0;
-    integer_part = 0;
+    // fract_part = 0;
+    // integer_part = 0;
 }
 
-bool Scalar::check_in(double numeric)
+ bool Scalar::check_in(double numeric)
 {
     if(numeric == -HUGE_VAL or numeric == HUGE_VAL)
         return (true);
@@ -28,7 +28,7 @@ bool Scalar::check_in(double numeric)
     return (false);
 }
 
-void Scalar::cs(double  num)
+ void Scalar::cs(double  num,double fract_part,double integer_part)
 {
 
     
@@ -67,111 +67,162 @@ void Scalar::cs(double  num)
             
 }
 
-void Scalar::impossible(char *rest,int & size,int & valid)
-{
-    if((strlen(rest) > 0 and strcmp(rest,"f") != 0 and size > 1) or (size == 0))
-    {
-            std::cout << "char: impossible"   << '\n';
-            std::cout << "int: impossible" << '\n';
-            std::cout << "float: impossible" << '\n';
-            std::cout << "double: impossible" << '\n';
-            valid = 1;
-    }
-}
+// void Scalar::impossible(char *rest,int & size,int & valid)
+// {
+//     if((strlen(rest) > 0 and strcmp(rest,"f") != 0 and size > 1) or (size == 0))
+//     {
+//             std::cout << "char: impossible"   << '\n';
+//             std::cout << "int: impossible" << '\n';
+//             std::cout << "float: impossible" << '\n';
+//             std::cout << "double: impossible" << '\n';
+//             valid = 1;
+//     }
+// }
 
-void Scalar::checking_zero(int & size,std::string &str,double & numeric,int &valid)
-{
-    if(valid)
-        return;
-    (void)numeric;
-    if((size == 1 and str[0] == '0'))
-    {
-         //std::cout <<GREEN<< "int" << RESET <<  std::endl;
-        cs(0);
-        valid = 1;
-    }         
+// void Scalar::checking_zero(int & size,std::string &str,double & numeric,int &valid)
+// {
+//     if(valid)
+//         return;
+//     (void)numeric;
+//     if((size == 1 and str[0] == '0'))
+//     {
+//          //std::cout <<GREEN<< "int" << RESET <<  std::endl;
+//         cs(0);
+//         valid = 1;
+//     }         
            
-}
+// }
 
-void Scalar::checking_float(std::string &str,char *rest, int &valid,double &numeric)
-{
-     if(valid)
-        return;
-   (void)str;
+// void Scalar::checking_float(std::string &str,char *rest, int &valid,double &numeric)
+// {
+//      if(valid)
+//         return;
+//    (void)str;
 
-    //idxf = check_in(str,f_science);
-    if(strcmp(rest,"f") == 0)
-    {
-         // std::cout <<GREEN<< "float" << RESET <<  std::endl;
-                cs(numeric);
+//     //idxf = check_in(str,f_science);
+//     if(strcmp(rest,"f") == 0)
+//     {
+//          // std::cout <<GREEN<< "float" << RESET <<  std::endl;
+//                 cs(numeric);
             
-            valid = 1;
-    }
-}
+//             valid = 1;
+//     }
+// }
 
-void Scalar::checking_double(std::string &str, double &numeric,int &valid)
-{
-    if(valid)
-        return;
-    (void)str;
+// void Scalar::checking_double(std::string &str, double &numeric,int &valid)
+// {
+//     if(valid)
+//         return;
+//     (void)str;
 
-    if(fract_part != 0)
-    {
-        // std::cout <<GREEN<< "double" << RESET <<  std::endl;
+//     if(fract_part != 0)
+//     {
+//         // std::cout <<GREEN<< "double" << RESET <<  std::endl;
 
-                cs(numeric);
-         valid = 1;
-    }
-}
+//                 cs(numeric);
+//          valid = 1;
+//     }
+// }
 
-void Scalar::checking_integer(int &valid)
-{
-    if(valid)
-        return;
-     if(fract_part == 0 && integer_part != 0)
-        {
-            //std::cout <<GREEN<< "int" << RESET <<  std::endl;
-            cs(integer_part);
-            valid = 1;
-        }
-}
+// void Scalar::checking_integer(int &valid)
+// {
+//     if(valid)
+//         return;
+//      if(fract_part == 0 && integer_part != 0)
+//         {
+//             //std::cout <<GREEN<< "int" << RESET <<  std::endl;
+//             cs(integer_part);
+//             valid = 1;
+//         }
+// }
 
-void Scalar::checking_char(std::string &str, int &size, int &valid)
-{
-    if(valid)
-        return;
-    if(size == 1 && integer_part == 0 && fract_part == 0)
-    {
+// void Scalar::checking_char(std::string &str, int &size, int &valid)
+// {
+//     if(valid)
+//         return;
+//     if(size == 1 && integer_part == 0 && fract_part == 0)
+//     {
       
-        //std::cout <<GREEN<< "char" << RESET <<  std::endl;
-        char t = (char)str[0];
-        cs((int)t);
-        valid = 1;
-    }
-}
+//         //std::cout <<GREEN<< "char" << RESET <<  std::endl;
+//         char t = (char)str[0];
+//         cs((int)t);
+//         valid = 1;
+//     }
+// }
 
-void Scalar::convert(std::string &str)
+ void Scalar::convert(std::string &str)
 {
     char *rest;
     double numeric;
+    double fract_part;
+    double integer_part;
     int size;
-    int valid(0);
+    // int valid(0);
 
     size = str.length();
     numeric = std::strtod(str.c_str(),&rest);
     fract_part = modf(numeric,&integer_part);
 
     
-    impossible(rest,size,valid);
-    checking_zero(size,str,numeric,valid);
-    checking_char(str,size,valid);
+    // impossible(rest,size,valid);
+    // checking_zero(size,str,numeric,valid);
+    // checking_char(str,size,valid);
     
-    checking_float(str,rest,valid,numeric);
-    checking_double(str,numeric,valid);
+    // checking_float(str,rest,valid,numeric);
+    // checking_double(str,numeric,valid);
    
-    checking_integer(valid);
+    // checking_integer(valid);
+
+    // checking wrong input
+    if((strlen(rest) > 0 and strcmp(rest,"f") != 0 and size > 1) or (size == 0))
+    {
+            std::cout << "char: impossible"   << '\n';
+            std::cout << "int: impossible" << '\n';
+            std::cout << "float: impossible" << '\n';
+            std::cout << "double: impossible" << '\n';
+           return;
+    }
+
+    // checking zero
+    if((size == 1 and str[0] == '0'))
+    {
+         //std::cout <<GREEN<< "int" << RESET <<  std::endl;
+        cs(0,fract_part,integer_part);
+       return;
+    }
     
-   
+    //checking char         
+    if(size == 1 && integer_part == 0 && fract_part == 0)
+    {
+      
+        //std::cout <<GREEN<< "char" << RESET <<  std::endl;
+        char t = (char)str[0];
+        cs((int)t,fract_part,integer_part);
+        return;
+    }
+    // checking float
+    if(strcmp(rest,"f") == 0)
+    {
+        cs(numeric,fract_part,integer_part);
+        return;
+    }
+
+      // checking double
+    if(fract_part != 0)
+    {
+        // std::cout <<GREEN<< "double" << RESET <<  std::endl;
+
+        cs(numeric,fract_part,integer_part);
+        return;
+    }
+
+    if(fract_part == 0 && integer_part != 0)
+    {
+        //std::cout <<GREEN<< "int" << RESET <<  std::endl;
+        cs(integer_part,fract_part,integer_part);
+        return;
+    }
+    
    
 }
 

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:47:46 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/22 04:51:00 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:21:16 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,18 @@
 class Scalar
 {
     private:
-
-        double fract_part;
-        double integer_part;
-    public:
-        Scalar();
-        bool check_in(double numeric);
-        void checking_zero(int & size,std::string &str,double & numeric,int &valid);
-        void checking_float(std::string &str,char *rest, int &valid,double &numeric);
-        void checking_double(std::string &str,double &numeric,int &valid);
-        void checking_integer(int &valid);
-        void checking_char(std::string &str, int &size, int &valid);
-        void cs(double  num);
-        void impossible(char *rest,int & size,int & valid);
-        void convert(std::string &s);
+        Scalar(); 
         ~Scalar();
+    public:
+       
+        static bool check_in(double numeric);
+        // static void checking_zero(int & size,std::string &str,double & numeric,int &valid);
+        // static void checking_float(std::string &str,char *rest, int &valid,double &numeric);
+        // static void checking_double(std::string &str,double &numeric,double &fract_part,int &valid);
+        // static void checking_integer(int &valid);
+        // static void checking_char(std::string &str, int &size, int &valid);
+        static void cs(double  num,double fract_part,double integer_part);
+        static void impossible(char *rest,int & size,int & valid);
+        static void convert(std::string &s);
+        
 };

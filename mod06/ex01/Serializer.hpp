@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:48:20 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/19 19:04:57 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:33:32 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ typedef struct s_data
 
 class Serializer
 {
-    public:
+    private:
         Serializer();
-        uintptr_t serialize(Data* ptr);
-        Data* deserialize(uintptr_t raw);
         ~Serializer();
+    public:
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
 };

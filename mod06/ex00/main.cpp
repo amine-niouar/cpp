@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:05:00 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/22 01:30:29 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/22 18:56:47 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int main(int ac,char **av)
     if(ac < 2)
         exit(0);
 
-    Scalar s;
+    
     
         
     std::string tmp(av[1]);
-    s.convert(tmp);
+    Scalar::convert(tmp);
    //float a = 44.0 / 0;
    //std::cout << a;
 

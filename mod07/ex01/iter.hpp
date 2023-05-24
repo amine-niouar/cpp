@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 19:48:20 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/23 10:02:40 by aniouar          ###   ########.fr       */
+/*   Created: 2023/05/24 19:05:39 by aniouar           #+#    #+#             */
+/*   Updated: 2023/05/24 19:23:02 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstdint>
 
-typedef struct s_data
+template <typename T>
+void print(T a)
 {
-    std::string str;
-} Data;
+    std::cout << a << std::endl;
+}
 
-class Serializer
-{
-    private:
-        Serializer();
-        Serializer(Serializer &s);
-        Serializer& operator=(Serializer& s);
-        ~Serializer();
-    public:
-        static uintptr_t serialize(Data* ptr);
-        static Data* deserialize(uintptr_t raw);
-};
+
+
+template <typename T>
+void iter(T *arr,T size,void (*f)(T element)){
+    int i(-1);
+    
+    while(++i < size)
+        f(arr[i]);
+}

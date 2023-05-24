@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   lib.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 19:48:20 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/23 10:02:40 by aniouar          ###   ########.fr       */
+/*   Created: 2023/05/24 18:48:22 by aniouar           #+#    #+#             */
+/*   Updated: 2023/05/24 19:02:21 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstdint>
 
-typedef struct s_data
+template <typename T>
+void swap(T &a,T &b)
 {
-    std::string str;
-} Data;
+    T c;
+    c = a;
+    a = b;
+    b = c;
+}
 
-class Serializer
+template <typename T>
+T min(T a,T b)
 {
-    private:
-        Serializer();
-        Serializer(Serializer &s);
-        Serializer& operator=(Serializer& s);
-        ~Serializer();
-    public:
-        static uintptr_t serialize(Data* ptr);
-        static Data* deserialize(uintptr_t raw);
-};
+    return (a >= b) ? b : a;
+}
+
+template <typename T>
+T max(T a,T b)
+{
+    return (a <= b) ? b : a;
+}

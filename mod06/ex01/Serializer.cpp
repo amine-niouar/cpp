@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:00:32 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/19 18:42:58 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/23 10:05:28 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ Serializer::Serializer()
 {
     
 }
+
+Serializer::Serializer(Serializer &s)
+{
+    (void)s;
+}
+
+Serializer& Serializer::operator=(Serializer& s)
+{
+    if(this != &s)
+        ;
+    return (*this);
+} 
 
 uintptr_t Serializer::serialize(Data* ptr)
 {

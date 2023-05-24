@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:03:41 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/22 19:35:16 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/23 11:27:18 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,16 @@ int main()
 	p->str = "message";
 	ds = 0;
 
+	std::cout << "Address p : " << p << std::endl;
+	std::cout << "Serialize..." << std::endl;
 	s_int = Serializer::serialize(p);
+	std::cout << "Value unit in hex " << std::hex  << s_int << std::endl;
+	
 	ds = Serializer::deserialize(s_int);
+	std::cout << "Address ds : " << ds << std::endl;
 
-
-	std::cout << p << " " << ds << " " << std::hex  << s_int << std::endl;
+	
+	
 	 std::cout << ds->str << std::endl;
 	return (0);
 }

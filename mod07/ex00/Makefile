@@ -6,14 +6,14 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/05/23 10:25:58 by aniouar          ###   ########.fr        #
+#    Updated: 2023/05/24 19:01:52 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS = main.cpp Scalar.cpp
-NAME =  Scalar 
+SRCS = main.cpp 
+NAME =  Template 
 
 
 CC = c++

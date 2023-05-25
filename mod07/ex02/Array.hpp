@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 19:27:29 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/24 20:23:46 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/25 10:25:54 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ template <typename T> class Array
         Array(unsigned int n);
         Array(Array &a);
         Array& operator=(Array &a);
-        T& operator[](int index);
+        T& operator[](int index) const;
+       // T& operator[](int index) const;
         int size();
 };
 
@@ -40,7 +41,7 @@ template <typename T> class Array
 template <typename T> Array<T>::Array()
 {
     len = 0;
-    arr = new T[len];
+    arr = NULL;
 }
 
 template <typename T> Array<T>::Array(unsigned int n)
@@ -56,27 +57,40 @@ template <typename T> Array<T>::Array(Array &a)
     
     arr = new T[a.len];
     while(++i < a.len)
+    {
         arr[i] = a.arr[i];
+        std::cout << arr[i]  <<  std::endl;
+    }
+        
+     
 }
 
 template <typename T> Array<T>& Array<T>::operator=(Array &a)
 {
     int i(-1);
     
-    if(len >= 0)
+    if(len > 0)
         delete arr;
-
-    arr = new T[a.len];
-    while(++i < a.len)
+    len = a.len;
+    arr = new T[len];
+    while(++i < len)
         arr[i] = a.arr[i];
+    
 }
-// const[] 
-template <typename T> T& Array<T>::operator[](int index)
+
+template <typename T> T& Array<T>::operator[](int index) const
 {
     if(index >= len)
         throw Array<T>::OutOfBoundException();
     return(arr[index]);
 }
+
+// template <typename T> T& Array<T>::operator[](int index) const
+// {
+//     if(index >= len)
+//         throw Array<T>::OutOfBoundException();
+//     return(arr[index]);
+// }
 
 template <typename T> int Array<T>::size()
 {

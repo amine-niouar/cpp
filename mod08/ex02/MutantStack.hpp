@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 19:05:39 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/25 10:15:11 by aniouar          ###   ########.fr       */
+/*   Created: 2023/05/25 19:38:18 by aniouar           #+#    #+#             */
+/*   Updated: 2023/05/25 19:44:45 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stack>
 
-template <typename T>
-void printy(T a)
+template<typename T,typename c=std::deque<T>>
+class Hornable : public std::stack<T,c>
 {
-    std::cout << a << std::endl;
-}
-
-
-
-template <typename T>
-void iter(T *arr,int size,void (*f)(T const &element)){
-    int i(-1);
     
-    while(++i < size)
-        f(arr[i]);
 }

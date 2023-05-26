@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/25 10:27:04 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/26 11:11:32 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,20 @@ void test3()
 int main( void ) {
     
     
-    test1();
-    test2();
-    test3();
+    // test1();
+    // test2();
+    // test3();
+
+    try
+    {
+           const Array<int> m(10);
+    
+        m[-1] = 12;
+
+        std::cout << m[0] << std::endl;
+    }
+
+ 
 
     return 0;
 

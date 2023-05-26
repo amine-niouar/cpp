@@ -6,14 +6,14 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/05/26 11:05:51 by aniouar          ###   ########.fr        #
+#    Updated: 2023/05/26 20:06:56 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS = main.cpp 
-NAME =  Array 
+SRCS = main.cpp csv.cpp
+NAME =  btc 
 
 
 CC = c++

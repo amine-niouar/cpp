@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 19:27:29 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/25 10:25:54 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/26 11:10:26 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ template <typename T> Array<T>::Array(Array &a)
 template <typename T> Array<T>& Array<T>::operator=(Array &a)
 {
     int i(-1);
-    
+
+    // check self assignment    
     if(len > 0)
         delete arr;
     len = a.len;
@@ -76,11 +77,12 @@ template <typename T> Array<T>& Array<T>::operator=(Array &a)
     while(++i < len)
         arr[i] = a.arr[i];
     
+
 }
 
 template <typename T> T& Array<T>::operator[](int index) const
 {
-    if(index >= len)
+    if(index >= len && index < 0)
         throw Array<T>::OutOfBoundException();
     return(arr[index]);
 }

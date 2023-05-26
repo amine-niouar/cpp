@@ -6,14 +6,14 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/05/25 06:52:32 by aniouar          ###   ########.fr        #
+#    Updated: 2023/05/26 09:54:56 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
 SRCS = main.cpp 
-NAME =  EasyFind 
+NAME =  Mutated 
 
 
 CC = c++

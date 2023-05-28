@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 19:27:29 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/26 11:10:26 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/27 15:39:37 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ template <typename T> class Array
         Array(Array &a);
         Array& operator=(Array &a);
         T& operator[](int index) const;
-       // T& operator[](int index) const;
         int size();
 };
 
@@ -69,30 +68,25 @@ template <typename T> Array<T>& Array<T>::operator=(Array &a)
 {
     int i(-1);
 
-    // check self assignment    
-    if(len > 0)
-        delete arr;
-    len = a.len;
-    arr = new T[len];
-    while(++i < len)
-        arr[i] = a.arr[i];
-    
-
+    if(this != &a)
+    {
+        if(len > 0)
+            delete arr;
+        len = a.len;
+        arr = new T[len];
+        while(++i < len)
+            arr[i] = a.arr[i];
+    }
+    return *this;
 }
 
 template <typename T> T& Array<T>::operator[](int index) const
 {
-    if(index >= len && index < 0)
+    if(index >= len || index < 0)
         throw Array<T>::OutOfBoundException();
     return(arr[index]);
 }
 
-// template <typename T> T& Array<T>::operator[](int index) const
-// {
-//     if(index >= len)
-//         throw Array<T>::OutOfBoundException();
-//     return(arr[index]);
-// }
 
 template <typename T> int Array<T>::size()
 {

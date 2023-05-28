@@ -6,12 +6,13 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 19:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/26 20:24:49 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/28 08:20:30 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <map>
+#include <sstream>
 #include<fstream>
 
 
@@ -32,6 +33,6 @@ class csv
         // throw exception if file not exist
         csv(std::string db_str);
         void loadData();
-        std::map<std::string,double>  getData() const;
+        std::map<std::string,double>&  getData() ;
         ~csv();
 };

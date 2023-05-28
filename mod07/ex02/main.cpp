@@ -6,112 +6,62 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/26 11:11:32 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/27 15:39:50 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Array.hpp"
 
-#define GREEN "\033[1;32m"
-#define RESET "\033[0m"
 
 
-
-
-void line()
+#define MAX_VAL 750
+int main(int, char**)
 {
-     std::cout << "--------------------------------" << std::endl;
-}
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-void test1()
-{
-    std::cout << GREEN<< "Test1 ..." << RESET <<  std::endl;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
     try
     {
-        Array<int> d;
-        Array<int> a(4);
-        a[0] = 1;
-        a[1] = 3;
-        a[2] = 3;
-        a[3] = 7;
-        Array <int> e(a);
-        
-        int i(-1);
-
-        while(++i < e.size())
-            std::cout << e[i] << std::endl;
+        numbers[-2] = 0;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-   
-}
-
-void test2()
-{
-    std::cout << GREEN<< "Test2 ..." << RESET <<  std::endl;
     try
     {
-        const Array<int> a(4);
-        a[0] = 1;
-        a[1] = 3;
-        a[2] = 3;
-        a[3] = 7;
-      
+        numbers[MAX_VAL] = 0;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-   
-}
 
-
-void test3()
-{
-    std::cout << GREEN<< "Test3 ..." << RESET <<  std::endl;
-    try
+    for (int i = 0; i < MAX_VAL; i++)
     {
-        const Array<int> a(4);
-        a[0] = 1;
-        a[1] = 3;
-        a[2] = 3;
-        a[3] = 7;
-
-        std::cout << a[1337] << std::endl;
-      
+        numbers[i] = rand();
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
-   
-}
-
-
-int main( void ) {
-    
-    
-    // test1();
-    // test2();
-    // test3();
-
-    try
-    {
-           const Array<int> m(10);
-    
-        m[-1] = 12;
-
-        std::cout << m[0] << std::endl;
-    }
-
- 
-
+    delete [] mirror;//
     return 0;
-
 }

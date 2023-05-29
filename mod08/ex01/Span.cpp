@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:15:58 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/25 18:08:36 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/29 19:28:04 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ Span::Span(unsigned int N)
 {
     counter = 0;
     range.reserve(N);
-
-}
+    capacity = N;
+}   
 
 void Span::addNumber(int n)
 {
      
-    if(counter >= (int)range.capacity())
+    if(counter == capacity)
         throw OutOfBoundException();
     
     range.push_back(n);
@@ -66,6 +66,7 @@ int Span::longestSpan()
         throw SmallSizeException();
     std::reverse(range.begin(),range.end());
     int longest_sp;
+    
 
     longest_sp = range[0] - range[counter-1];
     return (longest_sp);
@@ -87,7 +88,13 @@ void Span::show()
     int i(-1);
 
     while(++i < counter)
-        std::cout << range[i] << ",";
+    {
+        if(i == (counter-1))
+            std::cout << range[i] ;
+        else
+            std::cout << range[i] << ",";
+    }
+        
 
     std::cout << '\n';
 }

@@ -6,11 +6,11 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:47:46 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/23 10:24:05 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/29 18:26:38 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cmath>
+ç
 #include <stdlib.h>
 #include <limits.h>
 #include <iostream>

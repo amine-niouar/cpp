@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 06:52:58 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/25 08:24:34 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/29 18:19:54 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class NotFoundException : public std::exception
                  { return "Occurent not found";};
 };
 
-template <typename T,typename L> void easyfind(T arr,L element)
+template <typename T> void easyfind(T arr,int element)
 {
 
     typename T::iterator it;

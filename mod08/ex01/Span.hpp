@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 08:34:38 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/25 19:46:40 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/29 19:27:25 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 class Span
 {
      private:
-         std::stack<int> shit;
         std::vector<int> range;
         int counter;
+        int capacity;
      public:
         class OutOfBoundException : public std::exception
         {

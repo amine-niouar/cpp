@@ -6,13 +6,13 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/05/26 20:06:56 by aniouar          ###   ########.fr        #
+#    Updated: 2023/05/29 18:59:43 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS = main.cpp csv.cpp
+SRCS = main.cpp csv.cpp btc.cpp
 NAME =  btc 
 
 

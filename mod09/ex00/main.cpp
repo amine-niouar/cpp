@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/29 18:04:49 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/30 16:42:38 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,14 @@ int main( int ac,char **av) {
     {
         csv c("data.csv");
         std::string f(av[1]);
+        std::map<std::string,double> data;
         btc b( f );
 
-         b.iterate();
+         
 
         c.loadData();
+        data = c.getData();
+        b.iterate(data);
         std::map<std::string, double> mp = c.getData();
         
 

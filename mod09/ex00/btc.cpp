@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 09:56:26 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/29 20:25:40 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/05/30 17:02:57 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,15 @@ double btc::get_val(std::string &value_str)
     return value;
 }
 
-bool btc::isValidDate(int year, int month, int day) 
+bool btc::isValidDate(std::string values[]) 
 {
+    int year,month,day;
+    std::istringstream iss1(values[0]),iss2(values[1]),iss3(values[2]);
+
+    iss1 >> year;
+    iss2 >> month;
+    iss3 >> day;
+    
     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) {
         return false;
     }
@@ -89,24 +96,56 @@ bool btc::isValidDate(int year, int month, int day)
 
 void btc::checkDate(std::string &date)
 {
-    int year;
-    int month;
-    int day;
+    std::string d[3];
+    char sep = '-';
+    int i(-1);
     
     std::istringstream iss(date);
-    iss >> year >> month  >> day;
+
+  
+
+    while(std::getline(iss,d[++i],sep))
+    {
+        if(!(d[i].find_first_not_of( "0123456789" ) == std::string::npos))
+            throw std::runtime_error("Invalid numeric value date");
+    }
+    if(i != 3)
+        throw std::runtime_error("Invalid syntax date");
+       
+ 
+
+    if(!isValidDate(d))
+        throw std::runtime_error("Invalid date");
+}
+
+void btc::calculate(double &value,double &rate)
+{
+    std::cout << "= " << (value * rate) << std::endl;
+}
+
+double btc::getRate(std::string &date,std::map<std::string,double>& data)
+{
+    std::map<std::string,double>::iterator itlow,itfind;
+
+    itfind = data.find(date);
+    if(itfind == data.end())
+    {
+         itlow = data.lower_bound(date);
+
+         return (itlow->second);
+    }
+    return (itfind->second);
 }
 
 
-void btc::iterate()
+void btc::iterate(std::map<std::string,double>& data)
 {
     std::string key;
     std::string sep;
     std::string value_str;
-    double value;
+    double value,rate;
     int i(0);
 
-    //checking header
 
     std::string line;
     while(std::getline(readHandle,line))
@@ -118,7 +157,7 @@ void btc::iterate()
         
             if(!(value_str == "" and key == "" and sep == ""))
             {
-                std::cout << key << " " << sep << " " << value_str << std::endl;
+               
                 if(i == 0 && !checkHeader(line))
                     throw std::runtime_error("header error");
                 if(i > 0)
@@ -127,12 +166,19 @@ void btc::iterate()
                     throw std::runtime_error("invalid syntax");
                     value = get_val(value_str);
                     checkValue(value);
+                    checkDate(key);
+                     std::cout << key << " => " << value_str << " ";
+                     rate = getRate(key,data);
+                    calculate(value,rate);
+                     //std::cout << std::endl;;
                 }
+            
+               
             }
         }
         catch(std::exception &e)
         {
-             std::cerr << e.what() << std::endl;
+             std::cerr /*<< std::endl*/ <<  e.what() << std::endl;
         }
         key = "";
         sep = "";

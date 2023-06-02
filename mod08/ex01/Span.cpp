@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:15:58 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/01 12:04:13 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/02 19:00:50 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Span::Span(): counter(0), capacity(0)
 
 Span::Span(const Span &sp)
 {
-  std::cout << "hello" << std::endl;
     counter = sp.counter;
     range = sp.range;
     capacity = sp.capacity;
@@ -88,11 +87,13 @@ int Span::longestSpan()
 {
     if(counter <= 1)
         throw SmallSizeException();
-  
+    
     int longest_sp;
     
-
-    longest_sp = max_element(range.begin(),range.end()) - min_element(range.begin(),range.end());
+    std::sort(range.begin(),range.end());
+    
+    
+    longest_sp = range[counter - 1] - range[0];
     return (longest_sp);
 }
 

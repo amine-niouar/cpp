@@ -6,18 +6,18 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/06/02 10:09:48 by aniouar          ###   ########.fr        #
+#    Updated: 2023/06/02 20:03:26 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS = main.cpp 
+SRCS = main.cpp PmergeMe.cpp
 NAME =  merge 
 
 
 CC = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 
 all : $(NAME)
 $(NAME): $(SRCS)
 	$(CC) $(CPPFLAGS) -o $(NAME) $(SRCS)

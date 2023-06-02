@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/02 16:44:00 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/02 19:49:08 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <vector>
 #include <sstream>
+#include "PmergeMe.hpp"
 
 
 
@@ -75,6 +76,7 @@ int main( int ac,char **av) {
     
     int number; 
     std::string tmp;
+    PmergeMe p;
 
     if(ac > 1)
     {
@@ -86,10 +88,14 @@ int main( int ac,char **av) {
              tmp.assign(av[i]);
              std::istringstream iss(tmp);
              iss >> number;
-             l.push_back(number);
+             p.fill_c(number);
         }
-        merge(l);
-        show(l,"sample");
+        //merge(l);
+        //show(l,"sample");
+       
+        p.iter_vec("before");
+         p.merge_vec();
+        p.iter_vec("after");
     }
     
 

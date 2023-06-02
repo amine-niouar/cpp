@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/29 16:41:08 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/01 16:19:50 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void test3()
      MutantStack<int> mstack,mstack1;
 
 
+
     if(mstack.empty())
     {
         mstack.push(33);
@@ -105,7 +106,7 @@ void test3()
     mstack.pop();
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
-   
+    
     if(mstack.size() > 0)
     {
         while (it != ite)
@@ -114,7 +115,9 @@ void test3()
             ++it;
         }
     }
-    // testing const iterator
+ 
+    //MutantStack<int>::const_iterator i = mstack.begin();
+    //*i = *i + 1;
    line();
 }
 
@@ -122,32 +125,13 @@ void test3()
 int main( void ) {
    
    
-    MutantStack<int> mt;
-
-    // mt.push(10);
-    //  mt.push(20);
-    //   mt.push(20);
-
-    // MutantStack<int>::iterator it = mt.begin();
-    // MutantStack<int>::iterator ite = mt.end();
-
-    // std::cout << mt.size() << std::endl;
-  
-    // while(it != ite)
-    // {
-    //     std::cout << *it << std::endl;
-    //     ++it;
-    // }
+    
     
     test1();
     test2();
     
     test3();
    
-  
-    
-
-   // std::cout << "shit "  << s.size() << std::endl;
         
     return 0;
 

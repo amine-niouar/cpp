@@ -6,19 +6,43 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:15:58 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/29 19:28:04 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:04:13 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 
-Span::Span(unsigned int N)
+
+Span::Span(): counter(0), capacity(0)
 {
-    counter = 0;
-    range.reserve(N);
-    capacity = N;
-}   
+
+}
+
+Span::Span(const Span &sp)
+{
+  std::cout << "hello" << std::endl;
+    counter = sp.counter;
+    range = sp.range;
+    capacity = sp.capacity;
+}
+
+
+Span::Span(unsigned int N): counter(0), capacity(N)
+{
+
+}
+
+Span& Span::operator=( Span &sp)
+{
+    if(this != &sp)
+    {
+        counter = sp.counter;
+        range = sp.range;
+        capacity = sp.capacity;
+    }
+    return *this;
+}
 
 void Span::addNumber(int n)
 {
@@ -64,11 +88,11 @@ int Span::longestSpan()
 {
     if(counter <= 1)
         throw SmallSizeException();
-    std::reverse(range.begin(),range.end());
+  
     int longest_sp;
     
 
-    longest_sp = range[0] - range[counter-1];
+    longest_sp = max_element(range.begin(),range.end()) - min_element(range.begin(),range.end());
     return (longest_sp);
 }
 
@@ -97,4 +121,9 @@ void Span::show()
         
 
     std::cout << '\n';
+}
+
+Span::~Span()
+{
+    
 }

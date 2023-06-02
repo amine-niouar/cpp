@@ -12,11 +12,11 @@ def mergeSort(arr):
         # Dividing the array elements
         L = arr[:mid]
        
-        print("left " + str(L) + " " + key)
+        print("left " + str(L) + " L" + key)
  
         # Into 2 halves
         R = arr[mid:]
-        print("right " + str(R) + " " + key)
+        print("right " + str(R) + " R" + key)
 
         
  
@@ -61,7 +61,7 @@ def printList(arr):
  
 # Driver Code
 if __name__ == '__main__':
-    arr = [10,2,5,4]
+    arr = [10,7,5,4,2]
     print("Given array is")
     printList(arr)
     mergeSort(arr)

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/02 19:49:08 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/04 12:28:22 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,24 @@
 #define RESET "\033[0m"
 
 
+void line()
+{
+     std::cout << "--------------------------------" << std::endl;
+}
+
+
 void show(std::vector<int> &l,std::string f)
 {
-    std::vector<int>::iterator start;
+    std::vector<int>::iterator start,last;
 
     std::cout << f << " [ ";
-    
     start = l.begin();
+    last = --(l.end());
     while(start != l.end())
     {
-         std::cout << *start << ",";
+        std::cout << *start;
+        if(start != last)
+            std::cout << ",";
          ++start;
     }
     std::cout << "] " << std::endl;   
@@ -67,6 +75,80 @@ void merge(std::vector<int> &l)
 }
 
 
+void pairs(std::vector<int> &l)
+{
+   
+    show(l,"pairs");
+    
+    std::vector<std::pair<int,int > > pairs;
+    std::vector<int>small,large;
+    //std::vector<int>::iterator itx;
+   
+
+    int i,size,x;
+    int tmp[2];
+    
+    size = l.size();
+    x = 0;
+    i = -1;
+    while(++i < size)
+    {
+        tmp[x++] = l[i];
+        if(i % 2 == 1)
+        {
+             pairs.push_back(std::make_pair(tmp[0],tmp[1]));
+            x = 0;
+        }
+    }
+    
+   std::vector<std::pair<int,int> >::iterator it;
+    it = pairs.begin();
+    while(it != pairs.end())
+    {
+        if(it->first > it->second)
+            std::swap(it->first,it->second);
+      
+        std::cout << it->first << " " << it->second << std::endl;
+        ++it;
+    }
+    
+    sort(pairs.begin(),pairs.end());
+
+    
+    line();
+     it = pairs.begin();
+    while(it != pairs.end())
+    {
+    
+        small.push_back(it->first);
+         large.push_back(it->second);
+        std::cout << it->first << " " << it->second << std::endl;
+        ++it;
+    }
+    
+
+    
+    show(small,"small");
+    show(large,"large");
+
+      std::vector<int>::iterator upper1, upper2,itx;
+      int distance;
+      
+ 
+    itx = small.begin();
+
+    while(itx != small.end())
+    {
+          
+        upper1 = std::upper_bound(large.begin(), large.end(), *itx);
+         distance = upper1 - large.begin();
+        std::cout << "upper_bound for element "<< *itx << " is at position : " << (distance) << std::endl;
+        large.insert(large.begin() + distance,*itx);
+        ++itx;
+    }
+    show(large,"large");
+}
+
 
 
 int main( int ac,char **av) {
@@ -88,14 +170,16 @@ int main( int ac,char **av) {
              tmp.assign(av[i]);
              std::istringstream iss(tmp);
              iss >> number;
-             p.fill_c(number);
+             l.push_back(number);
+             //p.fill_c(number);
         }
+        pairs(l);
         //merge(l);
         //show(l,"sample");
        
-        p.iter_vec("before");
-         p.merge_vec();
-        p.iter_vec("after");
+       // p.iter_vec("before");
+         //p.merge_vec();
+        //p.iter_vec("after");
     }
     
 

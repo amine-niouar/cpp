@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 09:56:26 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/30 20:26:15 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/04 10:27:28 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,14 @@ bool btc::checkHeader(std::string &line)
     std::string key;
     std::string value;
     std::string sep;
+    std::string rest;
     
     iss >> key >> sep >>  value;
-   
+    std::getline(iss, rest);
+
+     if(sep != "|" ||   rest.size() > 0)
+            throw std::runtime_error("invalid syntax");
+    
     if(key == "date" && value == "value")
         return true;
     return false;
@@ -45,7 +50,7 @@ void btc::checkValue(double &val)
     fract_part = modf(val,&integer_part);
 
     if(fract_part == 0 and (integer_part < 0 or integer_part > 1000))
-        throw std::runtime_error("Error: too large a number.");
+        throw std::runtime_error("Error: number out of range.");
 
 }
 
@@ -176,8 +181,6 @@ void btc::iterate(std::map<std::string,double>& data)
                      throw int(4);
                 if(i > 0)
                 {
-                    if(checkHeader(line))
-                         throw int(4);
                     checkDate(key);
                     rate = getRate(key,data);
                     value = get_val(value_str);
@@ -189,7 +192,6 @@ void btc::iterate(std::map<std::string,double>& data)
                      std::cout << key << " => " << value_str << " ";
                    
                     calculate(value,rate);
-                     //std::cout << std::endl;;
                 }
             }
            
@@ -198,12 +200,13 @@ void btc::iterate(std::map<std::string,double>& data)
         catch(std::exception &e)
         {
             
-             std::cerr /*<< std::endl*/ <<  e.what() << std::endl;
+             std::cerr <<  e.what() << std::endl;
         }
          catch(...)
         {
-            std::cerr << "Error Header " << std::endl;
-            break;
+                 
+            std::cerr << "Error Header " << std::endl; 
+            return;
         }
         rest = "";
         key = "";

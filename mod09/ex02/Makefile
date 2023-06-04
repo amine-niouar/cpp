@@ -6,13 +6,13 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/06/02 20:03:26 by aniouar          ###   ########.fr        #
+#    Updated: 2023/06/04 18:54:13 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-SRCS = main.cpp PmergeMe.cpp
+SRCS = main.cpp PmergeMe.cpp PmergeYou.cpp
 NAME =  merge 
 
 

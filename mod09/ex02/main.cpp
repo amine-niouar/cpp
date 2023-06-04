@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/04 12:28:22 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/04 19:39:34 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <vector>
 #include <sstream>
 #include "PmergeMe.hpp"
-
+#include "PmergeYou.hpp"
 
 
 #define GREEN "\033[1;32m"
@@ -75,6 +75,8 @@ void merge(std::vector<int> &l)
 }
 
 
+
+
 void pairs(std::vector<int> &l)
 {
    
@@ -82,11 +84,13 @@ void pairs(std::vector<int> &l)
     
     std::vector<std::pair<int,int > > pairs;
     std::vector<int>small,large;
-    //std::vector<int>::iterator itx;
    
 
-    int i,size,x;
+    int i,size,x,count(0);
     int tmp[2];
+
+   // count = fill_pairs_vec(pairs,l);
+    
     
     size = l.size();
     x = 0;
@@ -96,8 +100,9 @@ void pairs(std::vector<int> &l)
         tmp[x++] = l[i];
         if(i % 2 == 1)
         {
-             pairs.push_back(std::make_pair(tmp[0],tmp[1]));
+            pairs.push_back(std::make_pair(tmp[0],tmp[1]));
             x = 0;
+            count += 2;
         }
     }
     
@@ -142,9 +147,16 @@ void pairs(std::vector<int> &l)
           
         upper1 = std::upper_bound(large.begin(), large.end(), *itx);
          distance = upper1 - large.begin();
-        std::cout << "upper_bound for element "<< *itx << " is at position : " << (distance) << std::endl;
+        //std::cout << "upper_bound for element "<< *itx << " is at position : " << (distance) << std::endl;
         large.insert(large.begin() + distance,*itx);
         ++itx;
+    }
+    if(count < size)
+    {
+        std::cout << l[count] << std::endl;
+        upper1 = std::upper_bound(large.begin(), large.end(),l[count]);
+        distance = upper1 - large.begin();
+        large.insert(large.begin() + distance,l[count]);
     }
     show(large,"large");
 }
@@ -159,6 +171,7 @@ int main( int ac,char **av) {
     int number; 
     std::string tmp;
     PmergeMe p;
+    PmergeYou y;
 
     if(ac > 1)
     {
@@ -170,16 +183,17 @@ int main( int ac,char **av) {
              tmp.assign(av[i]);
              std::istringstream iss(tmp);
              iss >> number;
-             l.push_back(number);
+             //l.push_back(number);
+             y.fill_c(number);
              //p.fill_c(number);
         }
-        pairs(l);
+       // pairs(l);
         //merge(l);
         //show(l,"sample");
        
-       // p.iter_vec("before");
-         //p.merge_vec();
-        //p.iter_vec("after");
+        y.iter_vec("before");
+         y.merge_vec();
+        y.iter_vec("after");
     }
     
 

@@ -6,14 +6,14 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/05/31 16:16:01 by aniouar          ###   ########.fr        #
+#    Updated: 2023/06/06 12:30:11 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
 SRCS = main.cpp RPN.cpp
-NAME =  rpn 
+NAME =  RPN 
 
 
 CC = c++

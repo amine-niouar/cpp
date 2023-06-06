@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:45:38 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/04 19:41:39 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/06 18:35:04 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,11 @@ void PmergeYou::merge_vec_rec(std::vector<int> &l)
     int count(0),size;
     
     size = l.size();
+    if(size == 1)
+    {
+        large_vec.push_back(l[0]);
+        return;
+    }
     count = fill_pairs_vec(pairs,l);
     
     sort_pairs_divide(pairs,large_vec,small);
@@ -223,6 +228,11 @@ void PmergeYou::merge_deq_rec(std::deque<int> &d)
     int count(0),size;
     
     size = d.size();
+    if(size == 1)
+    {
+        large_deque.push_back(d[0]);
+        return;
+    }
     count = fill_pairs_deque(pairs,d);
     
     sort_pairs_deque_divide(pairs,large_deque,small);

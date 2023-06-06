@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/04 19:39:34 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/06 18:32:17 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,28 +173,43 @@ int main( int ac,char **av) {
     PmergeMe p;
     PmergeYou y;
 
-    if(ac > 1)
+    try
     {
-        std::vector<int> l;
-        int i(0);
-
-        while(++i < ac)
+        if(ac > 1)
         {
-             tmp.assign(av[i]);
-             std::istringstream iss(tmp);
-             iss >> number;
-             //l.push_back(number);
-             y.fill_c(number);
-             //p.fill_c(number);
+            std::vector<int> l;
+            int i(0);
+
+            while(++i < ac)
+            {
+                tmp.assign(av[i]);
+                std::istringstream iss(tmp);
+                
+                if(tmp.find_first_not_of("0123456789" ) == std::string::npos)
+                {
+                    iss >> number;
+                    //l.push_back(number);
+                    y.fill_c(number);
+                    //p.fill_c(number);
+                }
+                else
+                    throw std::runtime_error("Error bad number input");
+            
+            }
+        // pairs(l);
+            //merge(l);
+            //show(l,"sample");
+            
+            y.iter_vec("before");
+            y.merge_vec();
+            y.iter_vec("after");
         }
-       // pairs(l);
-        //merge(l);
-        //show(l,"sample");
-       
-        y.iter_vec("before");
-         y.merge_vec();
-        y.iter_vec("after");
     }
+    catch(std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    
     
 
 

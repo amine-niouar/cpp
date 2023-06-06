@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 09:56:26 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/04 10:27:28 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/06 17:07:48 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ bool btc::checkHeader(std::string &line)
 
 void btc::checkValue(double &val)
 {
-    // check integer
     double fract_part;
     double integer_part;
     
     fract_part = modf(val,&integer_part);
 
-    if(fract_part == 0 and (integer_part < 0 or integer_part > 1000))
+    if((integer_part < 0 or integer_part > 1000) || fract_part < 0)
         throw std::runtime_error("Error: number out of range.");
 
 }

@@ -19,3 +19,7 @@
 1,-2 *
 -2 *
 
+no header
+0.
+
+shit canonical form 

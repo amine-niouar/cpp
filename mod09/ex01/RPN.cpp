@@ -6,92 +6,46 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:07:16 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/06 17:02:45 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/07 12:45:09 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
+RPN::RPN()
+{
+    
+}
 
+RPN::RPN(RPN &r) : exp(r.exp),formula(r.formula)
+{
+    
+}
 
 RPN::RPN(std::string &e) : exp(e)
 {
     
 }
 
-
-void RPN::execute()
+RPN& RPN::operator=(RPN &r)
 {
-    std::istringstream iss(exp);
-    std::string token;
-    int number;
-    int infix[2];
-    int x(0);
-    int i;
-    int result;
-    
-    while(iss >> token)
+    if(this != &r)
     {
-        std::istringstream tmp(token);
-        
-        if(token.find_first_not_of("0123456789" ) == std::string::npos)
-        {
-            x++;
-            tmp >> number;
-            formula.push(number);
-        }
-        else
-        {
-            if(formula.size() >= 2)
-            {
-                i = 0;
-                 while (!formula.empty())
-                 {  
-                        infix[i++] = formula.top();
-                        formula.pop();
-                 }
-               
-                if(token == "+")
-                    result = infix[0] + infix[1];
-                else if(token == "-")
-                    result = infix[1] - infix[0];
-                else if(token == "*")
-                {
-                    
-                    result = infix[0] * infix[1];
-                    
-                }
-                  
-                else if(token == "/")
-                {
-                     if(infix[0] == 0)
-                          throw std::runtime_error("Error");
-                     result = infix[1] / infix[0];
-                }
-                else
-                    throw std::runtime_error("Error");
-                formula.push(result);
-            }
-             else
-                    throw std::runtime_error("Error"); 
-        }
-            
-       
+        exp = r.exp;
+        formula = r.formula;
     }
-     if(formula.size() >= 2 || formula.size() == 0 || x < 2)
-        throw std::runtime_error("Error");
-     std::cout << formula.top() << std::endl;
+    return (*this);
 }
 
-void RPN::execute_1()
+
+
+void RPN::execute()
 {
      
     std::string token;
     int number;
-    //int counter(0);
     int temp;
     int x(0);
-    //int result;
     int i;
     token = exp;
     x = 0;
@@ -137,13 +91,18 @@ void RPN::execute_1()
         else if(token[x] == 32 || token[x] == '\r' || token[x] == '\t')
             ;
         else 
-             throw std::runtime_error("Errora");
+             throw std::runtime_error("Error");
         x++;
     }
         
       
     
      if(formula.size() >= 2 || formula.size() == 0)
-        throw std::runtime_error("Erroro");
+        throw std::runtime_error("Error");
      std::cout << formula.top() << std::endl;
+}
+
+RPN::~RPN()
+{
+    
 }

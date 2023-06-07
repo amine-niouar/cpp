@@ -6,23 +6,24 @@
 #    By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 17:26:16 by aniouar           #+#    #+#              #
-#    Updated: 2023/06/06 12:30:11 by aniouar          ###   ########.fr        #
+#    Updated: 2023/06/07 13:28:54 by aniouar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-
-SRCS = main.cpp RPN.cpp
-NAME =  RPN 
-
-
+SRCS =  main.cpp RPN.cpp
+NAME =   RPN 
+HEADER = RPN.hpp
+OBJS = $(SRCS:.cpp=.o)
 CC = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 
 all : $(NAME)
-$(NAME): $(SRCS)
-	$(CC) $(CPPFLAGS) -o $(NAME) $(SRCS)
+$(NAME): $(OBJS)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJS)
+$(OBJS) : $(HEADER)
 clean :
-	rm -rf $(NAME)
+	rm -rf $(OBJS)
 fclean : clean
+	rm -f $(NAME)
 re : fclean all
 .PHONY: clean fclean re all

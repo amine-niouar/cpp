@@ -6,18 +6,47 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 09:56:26 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/06 17:07:48 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/07 13:13:40 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "btc.hpp"
 
+btc::btc()
+{
+    
+}
+
+btc::btc(btc &c)
+{
+    input = c.input;
+    readHandle.open(input,std::ios::in);
+
+    if(!readHandle.good())
+        throw std::runtime_error("Cant load input");
+}
+
 btc::btc(std::string &input_str) : input(input_str)
 {
     readHandle.open(input,std::ios::in);
 
-     if(!readHandle.good())
-        throw InError();
+    if(!readHandle.good())
+        throw std::runtime_error("Cant load input");
+}
+
+btc& btc::operator=(btc &b)
+{
+    if(this != &b)
+    {
+        input = b.input;
+        if(readHandle.is_open())
+            readHandle.close();
+        readHandle.open(input,std::ios::in);
+
+        if(!readHandle.good())
+            throw std::runtime_error("Cant load input");
+    }
+    return (*this);
 }
 
 
@@ -33,8 +62,9 @@ bool btc::checkHeader(std::string &line)
     iss >> key >> sep >>  value;
     std::getline(iss, rest);
 
+
      if(sep != "|" ||   rest.size() > 0)
-            throw std::runtime_error("invalid syntax");
+            return false;
     
     if(key == "date" && value == "value")
         return true;
@@ -57,13 +87,13 @@ double btc::get_val(std::string &value_str)
 {
     double value;
     char *rest;
-    std::string tmp;
+   
     std::string exception_msg;
     
     exception_msg = "Error bad input ";
     exception_msg.append(value_str);
     value =  std::strtod(value_str.c_str(),&rest);
-    tmp = rest;
+    std::string tmp(rest);
     if(tmp.size() > 0)
          throw std::runtime_error(exception_msg);
     return value;
@@ -169,6 +199,9 @@ void btc::iterate(std::map<std::string,double>& data)
         {
             std::istringstream iss(line);
             iss >> key >> sep >>  value_str;
+
+           
+
         
             if(!(value_str == "" and key == "" and sep == ""))
             {
@@ -176,8 +209,7 @@ void btc::iterate(std::map<std::string,double>& data)
                 if(sep != "|" ||  (i > 0 and rest.size() > 0))
                      throw std::runtime_error("invalid syntax");
                    
-                if(i == 0 && !checkHeader(line))
-                     throw int(4);
+               
                 if(i > 0)
                 {
                     checkDate(key);
@@ -192,6 +224,11 @@ void btc::iterate(std::map<std::string,double>& data)
                    
                     calculate(value,rate);
                 }
+            }
+            else
+            {
+                if(i == 0 && !checkHeader(line))
+                     throw int(4);
             }
            
         }

@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 09:55:03 by aniouar           #+#    #+#             */
-/*   Updated: 2023/05/30 16:58:46 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/07 13:34:46 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,9 @@ class btc
         std::fstream readHandle;
         std::string input;
     public:
-        class InError : public std::exception
-        {
-            public:
-               
-                 const char* what() const throw() 
-                 { return " Cant load input ";};
-        };
+        btc();
+        btc(btc &c);
+        btc& operator=(btc &b);
         void checkValue(double &val);
         double get_val(std::string &value_str);
         double getRate(std::string &date,std::map<std::string,double>& data);
@@ -43,6 +39,5 @@ class btc
         void checkDate(std::string &date);
         btc(std::string &input_str);
         void iterate(std::map<std::string,double> &data);
-        //std::map<std::string,double>&  getData() ;
         ~btc();
 };

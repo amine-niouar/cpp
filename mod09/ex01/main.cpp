@@ -6,7 +6,7 @@
 /*   By: aniouar <aniouar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:47:21 by aniouar           #+#    #+#             */
-/*   Updated: 2023/06/06 14:44:38 by aniouar          ###   ########.fr       */
+/*   Updated: 2023/06/07 12:44:16 by aniouar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main( int ac,char **av) {
         RPN rpn(exp);
         try
         {
-             rpn.execute_1();
+             rpn.execute();
         }
         catch(std::exception &e)
         {
